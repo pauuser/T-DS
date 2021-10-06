@@ -1,0 +1,60 @@
+SANCHEZ	THE BRIDGE OF SAN	Thomson	849	technical	biology	translated	1444
+WRIGHT	A PORTRAIT	Livre	18	children's	fairy tails
+TAYLOR	LOLITA	Harper	569	children's	fairy tails
+MILLER	THE GOOD SOLDIER	Macmillan	665	children's	fairy tails
+DAVIS	A PASSAGE TO INDIA	Thomson	235	fiction	poetry
+HALL	SLAUGHTERHOUSE-FIVE	Publishers	379	technical	computers	translated	1646
+ANDERSON	THE WINGS	Livre	674	fiction	poetry
+LOPEZ	ANIMAL FARM	Penguin	969	technical	science	state	1947
+BAKER	SONS AND LOVERS	Publishers	934	technical	physics	state	936
+GARCIA	HOWARDS END	Thomson	907	technical	math	state	1998
+BROWN	WINESBURG, OHIO	Harper	845	fiction	novel
+WALKER	AS I LAY DYING	Thomson	255	technical	computers	translated	1558
+SANCHEZ	AN AMERICAN TRAGEDY	Publishers	421	technical	science	state	1376
+YOUNG	UNDER THE VOLCANO	Hachette	369	children's	fairy tails
+BROWN	SISTER CARRIE	Bertelsmann	96	fiction	poetry
+MILLER	NATIVE SON	Hachette	603	technical	math	state	1726
+PEREZ	A DANCE	Hachette	229	technical	physics	state	1985
+GARCIA	1984	Bertelsmann	369	children's	poetry
+SMITH	A HANDFUL OF DUST	Harper	271	fiction	play
+BAKER	THE GOLDEN	Publishers	939	fiction	novel
+DAVIS	TO THE LIGHTHOUSE	Collins	918	fiction	poetry
+BAKER	SLAUGHTERHOUSE-FIVE	Livre	922	fiction	novel
+DAVIS	THE AMBASSADORS	Hachette	917	children's	poetry
+NELSON	SONS AND LOVERS	Collins	308	technical	computers	state	526
+HARRIS	THE AMBASSADORS	Harper	133	children's	poetry
+ADAMS	AS I LAY DYING	Thomson	732	children's	fairy tails
+LEE	POINT COUNTER POINT	Collins	286	children's	poetry
+JONES	U.S.A.(trilogy)	Bertelsmann	181	children's	poetry
+ROBINSON	THE GREAT GATSBY	Harper	894	children's	fairy tails
+THOMPSON	ULYSSES	Collins	357	fiction	novel
+ANDERSON	A HANDFUL OF DUST	Penguin	976	children's	poetry
+WRIGHT	THE SUN ALSO RISES	Macmillan	10	children's	fairy tails
+WILLIAMS	THE WINGS	Reuters	498	fiction	play
+THOMAS	THE BRIDGE OF SAN	Bertelsmann	658	technical	math	translated	1382
+ALLEN	A HANDFUL OF DUST	Penguin	211	fiction	play
+WHITE	WINESBURG, OHIO	Harper	695	technical	biology	state	1019
+KING	A DANCE	Macmillan	737	fiction	poetry
+RAMIREZ	THE AMBASSADORS	Collins	844	children's	fairy tails
+THOMAS	UNDER THE VOLCANO	Publishers	999	fiction	novel
+WHITE	LOLITA	Harper	961	fiction	poetry
+LEE	SLAUGHTERHOUSE-FIVE	Hachette	886	technical	computers	state	280
+THOMPSON	A HANDFUL OF DUST	Livre	585	technical	biology	translated	344
+GONZALEZ	LOLITA	Hachette	979	technical	chemistry	translated	504
+THOMPSON	POINT COUNTER POINT	Penguin	700	fiction	play
+SCOTT	THE HEART OF THE	Reuters	142	technical	computers	state	1950
+HERNANDEZ	THE SUN ALSO RISES	Thomson	188	technical	physics	translated	718
+WRIGHT	DARKNESS AT NOON	Hachette	239	children's	poetry
+RODRIGUEZ	ALL THE KING'S MEN	Penguin	276	technical	biology	state	773
+WHITE	LORD OF THE FLIES	Reuters	35	technical	computers	state	78
+BAKER	AN AMERICAN TRAGEDY	Hachette	77	technical	biology	state	444
+HILL	TENDER IS T	Collins	703	children's	fairy tails
+DAVIS	THE BRIDGE OF SAN	Livre	33	technical	science	state	563
+TAYLOR	THE GOOD SOLDIER	Penguin	32	children's	fairy tails
+ANDERSON	DELIVERANCE	Publishers	77	fiction	play
+TAYLOR	HE WAY OF ALL FLESH	Thomson	884	children's	poetry
+HARRIS	ANIMAL FARM	Reuters	746	children's	fairy tails
+WRIGHT	THE GOLDEN	Collins	31	children's	fairy tails
+PEREZ	THE BRIDGE OF SAN	Collins	152	technical	computers	translated	1138
+CLARK	UNDER THE VOLCANO	Penguin	461	technical	biology	translated	1677
+SCOTT	1984	Publishers	864	fiction	poetry

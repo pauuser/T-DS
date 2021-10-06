@@ -1,0 +1,101 @@
+JONES	NATIVE SON	Hachette	593	children's	poetry
+LEWIS	DELIVERANCE	Macmillan	502	fiction	play
+YOUNG	POINT COUNTER POINT	Hachette	613	fiction	play
+HALL	THE STUDS	Thomson	49	technical	computers	state	1751
+THOMAS	THE WINGS	Penguin	312	children's	fairy tails
+GONZALEZ	I, CLAUDIUS	Publishers	882	technical	biology	state	532
+GARCIA	ALL THE KING'S MEN	Reuters	897	technical	computers	state	555
+WILLIAMS	I, CLAUDIUS	Macmillan	381	technical	physics	translated	656
+SCOTT	THE BRIDGE OF SAN	Bertelsmann	960	technical	chemistry	state	1822
+MOORE	HENDERSON THE RAIN	Thomson	137	fiction	novel
+ROBINSON	UNDER THE VOLCANO	Hachette	220	technical	biology	state	1726
+GONZALEZ	NATIVE SON	Reuters	514	fiction	novel
+NELSON	THE HEART OF THE	Thomson	963	fiction	poetry
+WILLIAMS	I, CLAUDIUS	Publishers	366	children's	poetry
+RAMIREZ	THE GOOD SOLDIER	Hachette	171	children's	poetry
+DAVIS	DARKNESS AT NOON	Harper	392	technical	chemistry	translated	17
+SANCHEZ	SISTER CARRIE	Hachette	734	technical	computers	translated	524
+PEREZ	A DANCE	Livre	866	children's	fairy tails
+WALKER	THE BRIDGE OF SAN	Publishers	273	fiction	poetry
+KING	HENDERSON THE RAIN	Publishers	36	technical	science	translated	952
+WHITE	TENDER IS T	Harper	503	fiction	play
+RODRIGUEZ	GO TELL IT ON	Bertelsmann	114	children's	poetry
+LOPEZ	WINESBURG, OHIO	Hachette	563	fiction	novel
+MOORE	ALL THE KING'S MEN	Publishers	37	children's	poetry
+BROWN	ULYSSES	Hachette	862	technical	biology	translated	654
+ADAMS	ANIMAL FARM	Hachette	398	fiction	play
+GONZALEZ	THE GREAT GATSBY	Hachette	118	children's	poetry
+WILLIAMS	HE GRAPES OF WRATH	Collins	703	fiction	novel
+MARTIN	HE GRAPES OF WRATH	Hachette	661	fiction	play
+SANCHEZ	HE WAY OF ALL FLESH	Publishers	253	technical	physics	state	586
+HALL	TO THE LIGHTHOUSE	Livre	400	fiction	poetry
+WRIGHT	U.S.A.(trilogy)	Penguin	768	technical	chemistry	state	1678
+BROWN	AS I LAY DYING	Harper	284	technical	computers	translated	1658
+LOPEZ	HOWARDS END	Publishers	967	technical	science	state	414
+RAMIREZ	THE WINGS	Publishers	972	fiction	novel
+MILLER	POINT COUNTER POINT	Collins	520	children's	poetry
+WRIGHT	ANIMAL FARM	Penguin	673	fiction	poetry
+MARTIN	CATCH-22	Reuters	360	fiction	novel
+THOMPSON	BRAVE NEW WORLD	Penguin	167	children's	fairy tails
+WHITE	AS I LAY DYING	Hachette	284	technical	math	state	251
+HERNANDEZ	TENDER IS T	Reuters	78	technical	chemistry	state	434
+LOPEZ	TO THE LIGHTHOUSE	Penguin	361	technical	biology	translated	1839
+MARTINEZ	DELIVERANCE	Collins	105	fiction	poetry
+BROWN	APPOINTMENT	Harper	100	fiction	novel
+JACKSON	THE HEART IS	Penguin	651	fiction	poetry
+PEREZ	ULYSSES	Collins	997	fiction	poetry
+JONES	NATIVE SON	Publishers	210	technical	computers	translated	740
+SMITH	SONS AND LOVERS	Penguin	955	technical	physics	state	881
+JONES	APPOINTMENT	Publishers	298	technical	math	translated	1525
+GARCIA	NATIVE SON	Thomson	42	technical	science	translated	188
+HERNANDEZ	A DANCE	Reuters	386	children's	fairy tails
+GARCIA	HOWARDS END	Hachette	510	technical	science	translated	895
+WRIGHT	A PASSAGE TO INDIA	Penguin	133	fiction	novel
+HARRIS	NATIVE SON	Penguin	217	fiction	novel
+BAKER	U.S.A.(trilogy)	Macmillan	836	technical	math	translated	1590
+YOUNG	LORD OF THE FLIES	Bertelsmann	119	technical	computers	translated	907
+MILLER	CATCH-22	Thomson	15	technical	science	translated	1286
+JOHNSON	A DANCE	Thomson	883	children's	poetry
+MARTINEZ	ULYSSES	Collins	911	technical	chemistry	state	860
+WALKER	ANIMAL FARM	Publishers	745	fiction	novel
+WILLIAMS	ALL THE KING'S MEN	Reuters	968	fiction	novel
+WHITE	A PORTRAIT	Thomson	460	children's	fairy tails
+KING	NATIVE SON	Livre	312	technical	biology	state	1707
+CLARK	A PASSAGE TO INDIA	Harper	554	technical	science	state	1766
+PEREZ	A PASSAGE TO INDIA	Collins	145	fiction	novel
+GONZALEZ	THE CATCHER	Penguin	335	technical	biology	translated	764
+WILSON	BRAVE NEW WORLD	Harper	800	technical	science	translated	1617
+THOMPSON	SLAUGHTERHOUSE-FIVE	Bertelsmann	973	fiction	novel
+CLARK	HE WAY OF ALL FLESH	Penguin	942	children's	poetry
+HERNANDEZ	A PORTRAIT	Penguin	671	fiction	novel
+ALLEN	A DANCE	Penguin	819	fiction	poetry
+BROWN	TENDER IS T	Harper	179	technical	chemistry	translated	1420
+GARCIA	A PORTRAIT	Bertelsmann	314	fiction	novel
+HERNANDEZ	U.S.A.(trilogy)	Reuters	897	technical	science	state	1784
+ALLEN	TO THE LIGHTHOUSE	Collins	308	technical	chemistry	state	94
+LEWIS	THE GOLDEN	Macmillan	527	children's	fairy tails
+DAVIS	HE GRAPES OF WRATH	Macmillan	482	technical	math	state	1520
+JOHNSON	THE AMBASSADORS	Harper	290	technical	chemistry	translated	1971
+SANCHEZ	LORD OF THE FLIES	Bertelsmann	994	children's	poetry
+RODRIGUEZ	THE HEART IS	Bertelsmann	57	children's	poetry
+BROWN	UNDER THE VOLCANO	Collins	120	technical	physics	translated	189
+WILLIAMS	UNDER THE VOLCANO	Harper	113	technical	math	translated	1014
+DAVIS	A PORTRAIT	Penguin	501	technical	biology	translated	434
+WRIGHT	DELIVERANCE	Harper	509	children's	poetry
+WILSON	SLAUGHTERHOUSE-FIVE	Macmillan	803	fiction	play
+MARTIN	THE STUDS	Macmillan	159	children's	fairy tails
+KING	AN AMERICAN TRAGEDY	Macmillan	266	technical	computers	state	178
+LEWIS	THE HEART OF THE	Publishers	691	technical	physics	translated	1519
+ANDERSON	SONS AND LOVERS	Hachette	696	fiction	play
+WILLIAMS	A PASSAGE TO INDIA	Harper	257	technical	physics	state	334
+JACKSON	THE CATCHER	Bertelsmann	264	technical	science	translated	1178
+GREEN	TO THE LIGHTHOUSE	Bertelsmann	514	technical	math	translated	1232
+BROWN	A HANDFUL OF DUST	Macmillan	700	fiction	novel
+THOMPSON	HE WAY OF ALL FLESH	Hachette	159	children's	fairy tails
+JOHNSON	TO THE LIGHTHOUSE	Harper	988	fiction	play
+MILLER	I, CLAUDIUS	Macmillan	838	technical	computers	translated	472
+SCOTT	POINT COUNTER POINT	Penguin	233	technical	chemistry	state	504
+HALL	DELIVERANCE	Thomson	157	technical	computers	state	342
+YOUNG	1984	Collins	937	children's	poetry
+HARRIS	A PASSAGE TO INDIA	Macmillan	750	fiction	novel
+WILSON	CATCH-22	Penguin	873	technical	computers	translated	450

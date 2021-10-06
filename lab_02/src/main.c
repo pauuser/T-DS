@@ -138,22 +138,26 @@ int main(void)
 {
     setbuf(stdout, NULL);
 
-    int ret_code = OK;
-
     book_table table;
     table.quantity = 0;
 
     print_welcome();
     int choice = -1;
-    while (choice != 0 && ret_code == OK)
+    while (choice != 0)
     {
         print_menu();
         if (scanf("%d", &choice) != 1)
-            ret_code = INVALID_MENU_NUM;
+        {
+            printf("No such option! You have to restart!\n");
+            break;
+        }
         else if (choice > 9 || choice < 0)
-            ret_code = INVALID_MENU_NUM;
+            printf("No such option!\n");
         else if (choice == 1)
-            ret_code = input_data_from_file(&table);
+        {
+            if (input_data_from_file(&table) != OK)
+                printf("Something wrong in file or you already have one!\n");
+        }
         else if (choice == 2)
             add_line(&table);
         else if (choice == 3)
@@ -175,7 +179,7 @@ int main(void)
             output_sort_stats(table);
     }
 
-    return ret_code;
+    return OK;
 }
 
 void output_sort_stats(book_table table)
@@ -214,12 +218,12 @@ void output_sort_stats(book_table table)
 
         printf("Efficiency results:\n");
         printf("Case       \t\tTable\t\tKey table\n");
-        printf("Bubble     \t\t%lld us\t\t%lld us\n", bubble_time_table, bubble_time_key);
-        printf("Qsort      \t\t%lld us\t\t%lld us\n", qsort_time_table, qsort_time_key);
+        printf("Bubble     \t\t%lld us\t\t%lld us\n", (long long)bubble_time_table, (long long)bubble_time_key);
+        printf("Qsort      \t\t%lld us\t\t%lld us\n", (long long)qsort_time_table, (long long)qsort_time_key);
         if (qsort_time_table == 0 || qsort_time_key == 0)
             printf("Not enough data for comparison yet!\n");
         else
-            printf("Qsort is   \t\t%lldx faster\t\t%lldx faster\n", qsort_time_table / bubble_time_table, qsort_time_key / bubble_time_key);
+            printf("Qsort is   \t\t%lldx faster\t\n", (long long)(qsort_time_table / bubble_time_table));
     }
     else
         printf("No data yet!\n");
@@ -249,7 +253,7 @@ void output_efficiency_results(book_table table)
         page_key_table key_table_copy = key_table;
 
         printf("MEASURING KEY TABLE...\n");
-        key_storage = sizeof(key_table);
+        key_storage = sizeof(key_table.pages[0]) * key_table.n;
 
         printf("Please type simple:\n");
         sort_key_table(&key_table, &bubble_time_key, &qsort_time_key, key_creation_time);
@@ -258,7 +262,7 @@ void output_efficiency_results(book_table table)
         sort_key_table(&key_table_copy, &bubble_time_key, &qsort_time_key, key_creation_time);
 
         printf("MEASURING FULL TABLE...\n");
-        table_storage = sizeof(table);
+        table_storage = sizeof(table.quantity) + sizeof(table.data[0]) * table.quantity;
 
         printf("Please type simple:\n");
         sort_table_full(&table, &bubble_time_table, &qsort_time_table);
@@ -268,8 +272,8 @@ void output_efficiency_results(book_table table)
 
         printf("EFFICIENCY TEST RESULTS:\n");
         printf("Case   \t\tTable\t\tKey table\n");
-        printf("Bubble \t\t%lld us\t\t%lld us\n", bubble_time_table, bubble_time_key);
-        printf("Qsort  \t\t%lld us\t\t%lld us\n", qsort_time_table, qsort_time_key);
+        printf("Bubble \t\t%lld us\t\t%lld us\n", (long long)bubble_time_table, (long long)bubble_time_key);
+        printf("Qsort  \t\t%lld us\t\t%lld us\n", (long long)qsort_time_table, (long long)qsort_time_key);
         printf("Storage\t\t%d\t\t%d\n", table_storage, key_storage);
     }
     else
@@ -305,35 +309,40 @@ void sort_table_full(book_table *table, int64_t *bubble_time_table, int64_t *qso
 {
     struct timeval tv_start, tv_stop;
 
-    printf("Choose sorting algorythm [simple/fast]: ");
-    char a[MAX_FIELD_LEN + 1];
-    if (scanf("%s", a) == 1)
+    if (table->quantity < 40)
+        printf("No books yet!\n");
+    else
     {
-        if (strcmp(a, "simple") == 0)
+        printf("Choose sorting algorythm [simple/fast]: ");
+        char a[MAX_FIELD_LEN + 1];
+        if (scanf("%s", a) == 1)
         {
-            gettimeofday(&tv_start, NULL);
-            bubble_sort_table(table);
-            gettimeofday(&tv_stop, NULL);
+            if (strcmp(a, "simple") == 0)
+            {
+                gettimeofday(&tv_start, NULL);
+                bubble_sort_table(table);
+                gettimeofday(&tv_stop, NULL);
 
-            if (bubble_time_table != NULL)
-                *bubble_time_table = (tv_stop.tv_sec - tv_start.tv_sec) * 1000000LL +
-                (tv_stop.tv_usec - tv_start.tv_usec);
-        }
-        else if (strcmp(a, "fast") == 0)
-        {
-            gettimeofday(&tv_start, NULL);
-            qsort(table->data, table->quantity, sizeof(book), compare_books);
-            gettimeofday(&tv_stop, NULL);
+                if (bubble_time_table != NULL)
+                    *bubble_time_table = (tv_stop.tv_sec - tv_start.tv_sec) * 1000000LL +
+                    (tv_stop.tv_usec - tv_start.tv_usec);
+            }
+            else if (strcmp(a, "fast") == 0)
+            {
+                gettimeofday(&tv_start, NULL);
+                qsort(table->data, table->quantity, sizeof(book), compare_books);
+                gettimeofday(&tv_stop, NULL);
 
-            if (qsort_time_table != NULL)
-                *qsort_time_table = (tv_stop.tv_sec - tv_start.tv_sec) * 1000000LL +
-                (tv_stop.tv_usec - tv_start.tv_usec);
+                if (qsort_time_table != NULL)
+                    *qsort_time_table = (tv_stop.tv_sec - tv_start.tv_sec) * 1000000LL +
+                    (tv_stop.tv_usec - tv_start.tv_usec);
+            }
+            else
+                printf("No such algorithm!\n");
         }
         else
-            printf("No such algorithm!\n");
+            printf("Input error!\n");
     }
-    else
-        printf("Input error!\n");
 }
 
 int compare_books(const void *one, const void *two)
@@ -627,6 +636,8 @@ void add_line(book_table *table)
 {
     if (table->quantity == 0)
         printf("No input data yet!\n");
+    else if (table->quantity == 100)
+        printf("Table overflow!\n");
     else
     {
         book temp_book = { 0 };
@@ -824,8 +835,8 @@ int input_data_from_file(book_table *table)
                             (*table).data[i] = temp_line;
                             (*table).quantity += 1;
                         }
+                        print_book_table(table);
                     }
-                    print_book_table(table);
                     fclose(f);
                 }
             }
@@ -836,40 +847,40 @@ int input_data_from_file(book_table *table)
 
 void print_book(book *temp)
 {
-    printf("%s\t", temp->name);
-    printf("%s\t", temp->title);
-    printf("%s\t", temp->publisher);
-    printf("%d\t", temp->pages);
+    printf("%20s ", temp->name);
+    printf("%20s ", temp->title);
+    printf("%20s ", temp->publisher);
+    printf("%5d ", temp->pages);
     if (temp->type == TECHNICAL)
-        printf("technical\t");
+        printf("technical \t");
     else if (temp->type == FICTION)
-        printf("fiction\t\t");
+        printf("fiction   \t");
     else
         printf("children's\t");
     if (temp->type == TECHNICAL)
     {
-        printf("%s\t", temp->spec.tech_info.area);
+        printf("%11s ", temp->spec.tech_info.area);
         if (temp->spec.tech_info.type == STATE)
-            printf("state\t");
+            printf("%11s ", "state");
         else
-            printf("translated\t");
-        printf("%d\t",  temp->spec.tech_info.year);
+            printf("%11s ", "translated");
+        printf("%11d",  temp->spec.tech_info.year);
     }
     else if (temp->type == FICTION)
     {
         if (temp->spec.fiction_info == FICTION_POETRY)
-            printf("poetry\t");
+            printf("%11s ", "poetry");
         else if (temp->spec.fiction_info == PLAY)
-            printf("play\t");
+            printf("%11s ", "play");
         else
-            printf("novel\t");
+            printf("%11s ", "novel");
     }
     else if (temp->type == CHILDREN)
     {
         if (temp->spec.children_info == CHILDREN_POETRY)
-            printf("poetry\t");
+            printf("%11s ", "poetry");
         else
-            printf("fairy tails\t");
+            printf("%11s", "novel");
     }
 }
 
@@ -913,6 +924,7 @@ book input_line(char *line)
         if (strcmp(fields[5], "poetry") == 0)
             temp.spec.fiction_info = FICTION_POETRY;
     }
+
     return temp;
 }
 
@@ -920,7 +932,7 @@ int check_file(FILE *f, int n)
 {
     rewind(f);
     int ret_code = OK;
-    if (n < 1 || n > 101)
+    if (n < 40 || n > 100)
         ret_code = BROKEN_FILE;
     else
     {
@@ -978,7 +990,7 @@ int check_string(char *string)
 int str_to_num(char *str)
 {
     int n = 0;
-    while (*str && *str != '\n')
+    while (*str && *str >= 32)
         n = n * 10 + *(str++) - ASCII_NUM_DIFF;
     return n;
 }

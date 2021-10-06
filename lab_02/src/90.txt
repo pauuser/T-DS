@@ -1,0 +1,90 @@
+RAMIREZ	TENDER IS T	Penguin	544	technical	chemistry	translated	645
+HALL	1984	Publishers	576	technical	physics	translated	1246
+HARRIS	LOLITA	Bertelsmann	171	children's	fairy tails
+WALKER	HE GRAPES OF WRATH	Collins	860	fiction	novel
+LEE	APPOINTMENT	Reuters	367	children's	poetry
+THOMPSON	TO THE LIGHTHOUSE	Macmillan	748	technical	math	translated	1538
+ALLEN	HENDERSON THE RAIN	Reuters	824	fiction	novel
+BAKER	WINESBURG, OHIO	Penguin	839	children's	fairy tails
+GONZALEZ	LORD OF THE FLIES	Thomson	822	children's	fairy tails
+SANCHEZ	INVISIBLE MAN	Publishers	238	children's	fairy tails
+CLARK	ANIMAL FARM	Publishers	232	fiction	poetry
+RODRIGUEZ	LORD OF THE FLIES	Harper	884	technical	physics	translated	1354
+ADAMS	BRAVE NEW WORLD	Macmillan	568	children's	fairy tails
+THOMAS	THE CATCHER	Reuters	394	technical	chemistry	translated	1039
+LEE	1984	Publishers	80	fiction	novel
+TAYLOR	NATIVE SON	Harper	168	fiction	play
+PEREZ	POINT COUNTER POINT	Bertelsmann	171	fiction	poetry
+GARCIA	THE BRIDGE OF SAN	Livre	414	technical	chemistry	translated	1375
+TAYLOR	ALL THE KING'S MEN	Macmillan	701	fiction	poetry
+MARTINEZ	HENDERSON THE RAIN	Harper	833	fiction	play
+HILL	DARKNESS AT NOON	Reuters	963	children's	poetry
+ROBINSON	SLAUGHTERHOUSE-FIVE	Macmillan	458	fiction	play
+CLARK	UNDER THE VOLCANO	Reuters	186	children's	fairy tails
+THOMPSON	CATCH-22	Hachette	99	technical	computers	state	1433
+JACKSON	SISTER CARRIE	Bertelsmann	515	technical	biology	translated	1363
+MARTIN	A PORTRAIT	Collins	876	fiction	play
+MARTIN	DELIVERANCE	Harper	513	technical	computers	state	734
+JOHNSON	ULYSSES	Livre	897	children's	fairy tails
+THOMAS	THE AMBASSADORS	Thomson	808	technical	biology	state	198
+TAYLOR	GO TELL IT ON	Harper	273	children's	fairy tails
+KING	ALL THE KING'S MEN	Reuters	669	fiction	novel
+MARTINEZ	HENDERSON THE RAIN	Bertelsmann	25	children's	poetry
+SMITH	SONS AND LOVERS	Collins	858	fiction	poetry
+PEREZ	TO THE LIGHTHOUSE	Macmillan	727	technical	science	state	27
+MOORE	AS I LAY DYING	Penguin	89	children's	poetry
+ANDERSON	A HANDFUL OF DUST	Hachette	566	children's	fairy tails
+GONZALEZ	UNDER THE VOLCANO	Harper	711	technical	science	state	61
+JACKSON	THE GOLDEN	Publishers	620	children's	fairy tails
+RODRIGUEZ	HE WAY OF ALL FLESH	Thomson	807	fiction	play
+SCOTT	AS I LAY DYING	Publishers	438	technical	computers	translated	1491
+BROWN	THE GOOD SOLDIER	Livre	904	technical	biology	state	320
+THOMAS	TENDER IS T	Penguin	146	fiction	novel
+CLARK	A PORTRAIT	Publishers	590	fiction	play
+ROBINSON	THE BRIDGE OF SAN	Bertelsmann	58	fiction	novel
+ANDERSON	THE BRIDGE OF SAN	Macmillan	697	technical	science	translated	1088
+CLARK	AS I LAY DYING	Publishers	275	children's	fairy tails
+MARTIN	THE BRIDGE OF SAN	Thomson	942	technical	physics	translated	161
+PEREZ	SONS AND LOVERS	Collins	584	technical	physics	translated	1637
+MOORE	THE AMBASSADORS	Collins	90	children's	poetry
+LEWIS	ULYSSES	Livre	327	children's	poetry
+WRIGHT	GO TELL IT ON	Livre	71	technical	biology	translated	813
+JOHNSON	NATIVE SON	Penguin	686	children's	fairy tails
+MOORE	WINESBURG, OHIO	Thomson	707	children's	fairy tails
+HARRIS	CATCH-22	Collins	694	technical	science	state	568
+SANCHEZ	HE GRAPES OF WRATH	Thomson	87	technical	computers	translated	802
+GARCIA	THE GOLDEN	Penguin	919	fiction	play
+MARTINEZ	THE WINGS	Collins	372	children's	poetry
+MARTINEZ	SONS AND LOVERS	Publishers	178	fiction	play
+DAVIS	SISTER CARRIE	Harper	522	children's	poetry
+WILSON	A PORTRAIT	Publishers	105	technical	computers	translated	523
+HILL	A HANDFUL OF DUST	Hachette	716	children's	fairy tails
+YOUNG	THE HEART IS	Bertelsmann	368	technical	biology	translated	1202
+WHITE	THE BRIDGE OF SAN	Thomson	349	children's	fairy tails
+JONES	ALL THE KING'S MEN	Macmillan	215	technical	physics	state	424
+SMITH	U.S.A.(trilogy)	Publishers	610	technical	science	state	788
+MARTIN	NATIVE SON	Publishers	362	fiction	novel
+THOMPSON	THE GREAT GATSBY	Collins	380	fiction	play
+ADAMS	SONS AND LOVERS	Livre	280	technical	science	translated	303
+HARRIS	THE STUDS	Publishers	123	children's	fairy tails
+JACKSON	ALL THE KING'S MEN	Macmillan	650	fiction	poetry
+PEREZ	LORD OF THE FLIES	Hachette	203	fiction	novel
+HARRIS	I, CLAUDIUS	Bertelsmann	46	fiction	novel
+MILLER	1984	Publishers	507	technical	chemistry	state	1817
+HARRIS	ALL THE KING'S MEN	Penguin	215	children's	fairy tails
+JOHNSON	THE GOLDEN	Reuters	539	technical	science	state	525
+GREEN	ALL THE KING'S MEN	Publishers	844	technical	computers	translated	1494
+NELSON	THE STUDS	Macmillan	135	technical	biology	translated	1997
+YOUNG	THE HEART OF THE	Harper	163	fiction	play
+WALKER	A PASSAGE TO INDIA	Reuters	843	fiction	poetry
+NELSON	ULYSSES	Collins	962	technical	math	state	1107
+PEREZ	THE WINGS	Harper	970	technical	biology	state	849
+GONZALEZ	HENDERSON THE RAIN	Hachette	292	technical	physics	state	359
+WRIGHT	ANIMAL FARM	Penguin	647	fiction	novel
+WALKER	SONS AND LOVERS	Penguin	711	technical	science	translated	690
+JOHNSON	LOLITA	Thomson	374	children's	poetry
+KING	THE HEART IS	Publishers	35	technical	physics	state	55
+LEWIS	THE BRIDGE OF SAN	Hachette	179	children's	poetry
+DAVIS	I, CLAUDIUS	Collins	775	fiction	poetry
+SCOTT	THE GREAT GATSBY	Penguin	941	technical	physics	state	1822
+LOPEZ	THE SUN ALSO RISES	Harper	11	technical	biology	state	1175

@@ -1,0 +1,70 @@
+LOPEZ	THE HEART IS	Collins	432	fiction	novel
+ADAMS	NATIVE SON	Publishers	608	children's	fairy tails
+NELSON	THE GOLDEN	Harper	605	children's	fairy tails
+WRIGHT	SISTER CARRIE	Penguin	672	fiction	poetry
+LEE	ALL THE KING'S MEN	Collins	477	fiction	novel
+THOMAS	GO TELL IT ON	Publishers	879	fiction	novel
+HALL	THE WINGS	Collins	346	children's	poetry
+JOHNSON	ULYSSES	Bertelsmann	804	technical	physics	translated	797
+ROBINSON	UNDER THE VOLCANO	Collins	173	technical	computers	translated	808
+LOPEZ	HE WAY OF ALL FLESH	Reuters	453	children's	poetry
+HARRIS	UNDER THE VOLCANO	Thomson	615	technical	science	state	1931
+GREEN	ANIMAL FARM	Hachette	380	children's	poetry
+GARCIA	A PASSAGE TO INDIA	Publishers	613	fiction	poetry
+HILL	CATCH-22	Livre	264	technical	science	state	1914
+HILL	ULYSSES	Reuters	975	children's	fairy tails
+LOPEZ	LORD OF THE FLIES	Reuters	520	technical	math	translated	1630
+TAYLOR	INVISIBLE MAN	Hachette	750	children's	fairy tails
+WILSON	UNDER THE VOLCANO	Penguin	547	fiction	poetry
+THOMPSON	THE CATCHER	Penguin	905	children's	poetry
+LEWIS	GO TELL IT ON	Hachette	634	technical	math	state	1406
+DAVIS	TO THE LIGHTHOUSE	Reuters	903	technical	science	translated	1719
+ANDERSON	POINT COUNTER POINT	Macmillan	159	fiction	play
+MILLER	AS I LAY DYING	Harper	714	technical	computers	translated	397
+ANDERSON	AS I LAY DYING	Macmillan	699	technical	science	translated	609
+HILL	TENDER IS T	Livre	637	children's	poetry
+WILSON	NATIVE SON	Publishers	879	children's	fairy tails
+YOUNG	A HANDFUL OF DUST	Reuters	233	technical	biology	translated	1244
+SMITH	INVISIBLE MAN	Publishers	86	technical	science	translated	1360
+THOMPSON	U.S.A.(trilogy)	Publishers	129	fiction	play
+LEWIS	POINT COUNTER POINT	Thomson	773	fiction	play
+THOMPSON	THE GREAT GATSBY	Hachette	451	technical	computers	translated	792
+HILL	LORD OF THE FLIES	Thomson	989	fiction	novel
+GONZALEZ	HE GRAPES OF WRATH	Penguin	994	children's	fairy tails
+CLARK	THE AMBASSADORS	Collins	232	fiction	novel
+SMITH	1984	Publishers	871	technical	physics	state	151
+SCOTT	ANIMAL FARM	Harper	356	children's	fairy tails
+MOORE	THE SUN ALSO RISES	Publishers	836	fiction	play
+MARTINEZ	A PORTRAIT	Thomson	733	technical	computers	state	875
+SMITH	POINT COUNTER POINT	Hachette	881	fiction	play
+NELSON	HE WAY OF ALL FLESH	Reuters	444	technical	physics	state	209
+JOHNSON	ALL THE KING'S MEN	Harper	213	children's	fairy tails
+MARTINEZ	THE BRIDGE OF SAN	Macmillan	715	children's	fairy tails
+GONZALEZ	SONS AND LOVERS	Penguin	146	technical	biology	translated	399
+SANCHEZ	THE HEART IS	Livre	546	children's	fairy tails
+SANCHEZ	GO TELL IT ON	Hachette	373	fiction	play
+NELSON	I, CLAUDIUS	Reuters	811	children's	fairy tails
+GONZALEZ	THE GOOD SOLDIER	Livre	14	fiction	poetry
+SMITH	BRAVE NEW WORLD	Publishers	860	fiction	play
+WALKER	THE GREAT GATSBY	Hachette	867	children's	poetry
+YOUNG	LORD OF THE FLIES	Hachette	649	children's	fairy tails
+SMITH	HOWARDS END	Harper	13	technical	biology	state	1
+SMITH	THE AMBASSADORS	Bertelsmann	383	children's	fairy tails
+GONZALEZ	SLAUGHTERHOUSE-FIVE	Bertelsmann	699	technical	physics	translated	1276
+JACKSON	UNDER THE VOLCANO	Bertelsmann	360	fiction	play
+GREEN	THE BRIDGE OF SAN	Macmillan	923	children's	fairy tails
+GONZALEZ	A PORTRAIT	Bertelsmann	407	fiction	poetry
+MILLER	APPOINTMENT	Harper	616	fiction	poetry
+ROBINSON	SONS AND LOVERS	Collins	731	technical	chemistry	translated	1889
+HARRIS	THE GOLDEN	Macmillan	553	children's	poetry
+HILL	THE SUN ALSO RISES	Harper	433	fiction	play
+GARCIA	HE GRAPES OF WRATH	Hachette	960	technical	physics	translated	91
+HERNANDEZ	THE CATCHER	Thomson	501	fiction	play
+JOHNSON	THE BRIDGE OF SAN	Thomson	850	children's	poetry
+WHITE	POINT COUNTER POINT	Livre	799	children's	poetry
+PEREZ	DELIVERANCE	Penguin	321	children's	poetry
+ANDERSON	WINESBURG, OHIO	Livre	366	children's	poetry
+WILLIAMS	ANIMAL FARM	Livre	325	technical	chemistry	translated	1336
+BROWN	INVISIBLE MAN	Hachette	287	children's	fairy tails
+WHITE	THE HEART OF THE	Macmillan	877	children's	fairy tails
+HALL	THE GOLDEN	Reuters	994	fiction	play

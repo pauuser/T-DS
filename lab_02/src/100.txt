@@ -1,0 +1,100 @@
+MOORE	ANIMAL FARM	Hachette	86	technical	computers	translated	744
+LEE	AS I LAY DYING	Hachette	627	children's	fairy tails
+WHITE	AS I LAY DYING	Publishers	218	technical	chemistry	state	1177
+YOUNG	A PORTRAIT	Reuters	979	technical	math	state	138
+GARCIA	AS I LAY DYING	Reuters	455	fiction	play
+RODRIGUEZ	CATCH-22	Livre	635	fiction	poetry
+CLARK	BRAVE NEW WORLD	Bertelsmann	757	technical	biology	translated	1033
+CLARK	DARKNESS AT NOON	Bertelsmann	873	fiction	play
+ANDERSON	CATCH-22	Bertelsmann	320	children's	poetry
+WILSON	POINT COUNTER POINT	Collins	736	fiction	play
+ADAMS	A HANDFUL OF DUST	Livre	344	children's	poetry
+HARRIS	THE SUN ALSO RISES	Livre	525	children's	poetry
+SANCHEZ	THE SUN ALSO RISES	Macmillan	857	children's	poetry
+ROBINSON	A PASSAGE TO INDIA	Hachette	166	technical	computers	translated	1103
+RAMIREZ	DARKNESS AT NOON	Livre	561	fiction	play
+LOPEZ	ULYSSES	Bertelsmann	353	technical	math	translated	1756
+WALKER	THE GOOD SOLDIER	Publishers	895	fiction	play
+RAMIREZ	A HANDFUL OF DUST	Thomson	560	children's	poetry
+MARTINEZ	THE SUN ALSO RISES	Macmillan	136	fiction	poetry
+WILLIAMS	SLAUGHTERHOUSE-FIVE	Hachette	640	children's	poetry
+ROBINSON	INVISIBLE MAN	Hachette	921	technical	science	translated	1085
+MARTIN	SLAUGHTERHOUSE-FIVE	Penguin	505	technical	biology	state	237
+SCOTT	AS I LAY DYING	Harper	75	children's	fairy tails
+BROWN	SLAUGHTERHOUSE-FIVE	Macmillan	685	children's	poetry
+HARRIS	ALL THE KING'S MEN	Macmillan	954	fiction	poetry
+ADAMS	THE AMBASSADORS	Collins	623	children's	poetry
+BROWN	NATIVE SON	Hachette	180	fiction	play
+SANCHEZ	SISTER CARRIE	Harper	613	children's	fairy tails
+BAKER	THE GOLDEN	Bertelsmann	497	children's	poetry
+HILL	BRAVE NEW WORLD	Collins	119	technical	computers	state	676
+SCOTT	THE GOLDEN	Harper	67	technical	computers	translated	543
+HILL	AN AMERICAN TRAGEDY	Penguin	629	technical	computers	translated	1692
+NELSON	THE WINGS	Thomson	73	technical	biology	state	1080
+MARTINEZ	HENDERSON THE RAIN	Livre	169	children's	poetry
+BROWN	BRAVE NEW WORLD	Reuters	775	fiction	poetry
+ADAMS	A PORTRAIT	Penguin	16	fiction	play
+LEWIS	AN AMERICAN TRAGEDY	Bertelsmann	671	technical	physics	state	1325
+YOUNG	A DANCE	Thomson	746	fiction	play
+THOMAS	UNDER THE VOLCANO	Livre	768	children's	fairy tails
+SMITH	LORD OF THE FLIES	Collins	522	fiction	poetry
+RODRIGUEZ	THE GOLDEN	Bertelsmann	657	technical	biology	state	825
+WALKER	THE WINGS	Publishers	197	fiction	poetry
+MILLER	WINESBURG, OHIO	Reuters	802	technical	math	translated	1815
+WHITE	1984	Bertelsmann	812	fiction	poetry
+RODRIGUEZ	TENDER IS T	Collins	22	technical	biology	translated	199
+BROWN	INVISIBLE MAN	Livre	501	fiction	poetry
+SCOTT	U.S.A.(trilogy)	Thomson	455	children's	fairy tails
+WILSON	A PASSAGE TO INDIA	Hachette	669	technical	physics	translated	1688
+RAMIREZ	SLAUGHTERHOUSE-FIVE	Penguin	527	technical	math	state	1716
+NELSON	THE GOLDEN	Macmillan	338	technical	math	state	304
+SMITH	ANIMAL FARM	Livre	490	children's	poetry
+GREEN	THE GOOD SOLDIER	Reuters	853	fiction	play
+THOMAS	THE GOLDEN	Hachette	708	fiction	play
+NELSON	LOLITA	Penguin	357	fiction	novel
+MARTIN	A HANDFUL OF DUST	Bertelsmann	660	technical	computers	state	1712
+HILL	A HANDFUL OF DUST	Collins	896	fiction	novel
+BAKER	A DANCE	Collins	52	technical	computers	translated	1972
+PEREZ	THE CATCHER	Reuters	31	fiction	novel
+RODRIGUEZ	DELIVERANCE	Publishers	484	fiction	poetry
+JOHNSON	APPOINTMENT	Livre	696	technical	chemistry	translated	1598
+THOMAS	NATIVE SON	Penguin	571	technical	science	translated	1960
+GREEN	A PASSAGE TO INDIA	Macmillan	692	fiction	play
+CLARK	AS I LAY DYING	Macmillan	501	fiction	play
+WILLIAMS	THE WINGS	Macmillan	228	children's	fairy tails
+ADAMS	THE GOLDEN	Bertelsmann	483	technical	chemistry	state	694
+LEE	INVISIBLE MAN	Publishers	67	fiction	poetry
+WILLIAMS	THE HEART IS	Reuters	553	children's	fairy tails
+GONZALEZ	THE STUDS	Publishers	668	technical	biology	translated	1796
+MILLER	DARKNESS AT NOON	Harper	564	children's	poetry
+LEWIS	LOLITA	Macmillan	473	fiction	novel
+SMITH	APPOINTMENT	Macmillan	269	children's	fairy tails
+GREEN	LORD OF THE FLIES	Reuters	828	fiction	novel
+JOHNSON	ULYSSES	Hachette	321	children's	fairy tails
+BAKER	AN AMERICAN TRAGEDY	Publishers	34	children's	fairy tails
+WILLIAMS	AS I LAY DYING	Bertelsmann	77	technical	science	state	220
+YOUNG	THE HEART OF THE	Reuters	264	children's	poetry
+CLARK	A DANCE	Collins	829	children's	fairy tails
+LEWIS	A PORTRAIT	Reuters	892	technical	science	translated	1182
+WILLIAMS	TO THE LIGHTHOUSE	Publishers	487	fiction	poetry
+HALL	THE GOLDEN	Livre	367	children's	fairy tails
+HARRIS	THE CATCHER	Collins	301	children's	fairy tails
+MARTIN	AN AMERICAN TRAGEDY	Penguin	742	fiction	poetry
+ALLEN	THE GOOD SOLDIER	Hachette	586	technical	math	translated	1314
+WILSON	DELIVERANCE	Reuters	375	children's	poetry
+WALKER	LORD OF THE FLIES	Harper	177	children's	fairy tails
+SCOTT	THE GREAT GATSBY	Thomson	803	technical	chemistry	translated	442
+KING	HE WAY OF ALL FLESH	Reuters	751	technical	chemistry	state	1282
+LEE	SLAUGHTERHOUSE-FIVE	Reuters	81	children's	fairy tails
+BAKER	THE STUDS	Penguin	171	children's	fairy tails
+SMITH	THE GOLDEN	Publishers	15	technical	science	state	1139
+WALKER	THE HEART IS	Penguin	172	children's	poetry
+SMITH	A PORTRAIT	Bertelsmann	169	children's	poetry
+HERNANDEZ	HENDERSON THE RAIN	Livre	555	fiction	poetry
+ANDERSON	TENDER IS T	Reuters	314	children's	fairy tails
+MARTINEZ	THE GOLDEN	Reuters	98	fiction	novel
+SCOTT	HOWARDS END	Publishers	350	technical	physics	translated	1297
+JACKSON	TO THE LIGHTHOUSE	Macmillan	123	fiction	poetry
+ANDERSON	SLAUGHTERHOUSE-FIVE	Bertelsmann	179	technical	chemistry	translated	1215
+SMITH	LOLITA	Macmillan	122	fiction	poetry
+JOHNSON	A PASSAGE TO INDIA	Livre	72	children's	fairy tails

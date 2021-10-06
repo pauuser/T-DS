@@ -1,0 +1,39 @@
+GARCIA	SONS AND LOVERS	Macmillan	621	technical	physics	state	1635
+WILLIAMS	HOWARDS END	Harper	996	fiction	poetry
+ANDERSON	HE WAY OF ALL FLESH	Penguin	364	children's	poetry
+JONES	1984	Harper	496	fiction	novel
+ADAMS	A PASSAGE TO INDIA	Penguin	433	technical	computers	state	263
+LOPEZ	ANIMAL FARM	Thomson	995	technical	physics	state	1822
+WILSON	AS I LAY DYING	Macmillan	452	technical	math	translated	1621
+ROBINSON	THE GOLDEN	Thomson	524	technical	biology	state	941
+SMITH	WINESBURG, OHIO	Livre	409	fiction	play
+NELSON	U.S.A.(trilogy)	Publishers	434	technical	math	state	1481
+DAVIS	1984	Reuters	535	fiction	novel
+KING	INVISIBLE MAN	Macmillan	972	technical	science	translated	888
+YOUNG	GO TELL IT ON	Penguin	91	technical	biology	translated	120
+NELSON	A PASSAGE TO INDIA	Penguin	42	fiction	novel
+SMITH	ANIMAL FARM	Penguin	381	fiction	play
+ADAMS	ULYSSES	Bertelsmann	851	technical	math	state	1808
+ROBINSON	HE WAY OF ALL FLESH	Reuters	326	children's	poetry
+LEE	SLAUGHTERHOUSE-FIVE	Bertelsmann	462	fiction	novel
+ADAMS	APPOINTMENT	Collins	949	technical	math	state	1333
+BAKER	NATIVE SON	Collins	128	technical	chemistry	translated	1419
+TAYLOR	U.S.A.(trilogy)	Livre	842	technical	math	state	1632
+HALL	SONS AND LOVERS	Harper	990	technical	computers	state	224
+WILLIAMS	BRAVE NEW WORLD	Thomson	402	children's	poetry
+NELSON	SISTER CARRIE	Livre	203	technical	biology	state	402
+SMITH	A HANDFUL OF DUST	Reuters	52	technical	science	state	1064
+HARRIS	HENDERSON THE RAIN	Thomson	589	technical	science	state	1987
+NELSON	LOLITA	Harper	309	fiction	novel
+LEWIS	SLAUGHTERHOUSE-FIVE	Macmillan	582	fiction	novel
+THOMAS	THE STUDS	Macmillan	927	children's	poetry
+LOPEZ	DELIVERANCE	Harper	876	children's	poetry
+SANCHEZ	THE BRIDGE OF SAN	Bertelsmann	478	fiction	poetry
+HARRIS	HE WAY OF ALL FLESH	Macmillan	336	fiction	poetry
+THOMPSON	THE STUDS	Harper	686	technical	physics	translated	340
+MOORE	THE STUDS	Hachette	638	technical	chemistry	state	894
+RODRIGUEZ	UNDER THE VOLCANO	Bertelsmann	632	children's	fairy tails
+LEWIS	THE GREAT GATSBY	Harper	521	children's	fairy tails
+WALKER	THE WINGS	Livre	328	technical	biology	state	861
+NELSON	A HANDFUL OF DUST	Publishers	227	technical	biology	state	1748
+BROWN	LOLITA	Thomson	17	fiction	poetry

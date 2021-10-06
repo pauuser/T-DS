@@ -1,0 +1,9 @@
+GARCIA	SONS AND LOVERS	Macmillan	621	technical	physics	state	1635
+WILLIAMS	HOWARDS END	Harper	996	fiction	poetry
+ANDERSON	HE WAY OF ALL FLESH	Penguin	364	children's	poetry
+JONES	1984	Harper	496	fiction	novel
+ADAMS	A PASSAGE TO INDIA	Penguin	433	technical	computers	state	263
+LOPEZ	ANIMAL FARM	Thomson	995	technical	physics	state	1822
+WILSON	AS I LAY DYING	Macmillan	452	technical	math	translated	1621
+ROBINSON	THE GOLDEN	Thomson	524	technical	biology	state	941
+SMITH	WINESBURG, OHIO	Livre	409	fiction

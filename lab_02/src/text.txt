@@ -1,7 +1,0 @@
-Belousov	Abstract Math	BMSTU	354	technical	Math	state	1997
-Kricshenko	Linear Algebra	BMSTU	981	technical	Math	state	2011
-Rodgerss	A tale for me	Penguin	25	children's	poetry
-Schulmann	Long day	Austril	9123	fiction	play
-Romanovson	War and Peace	Klin	76	technical	Math	translated	2001
-Tulkachov	Mechanics	NYUY	231	technical	Math	state	2002
-
