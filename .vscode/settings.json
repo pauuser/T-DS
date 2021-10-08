@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "input.h": "c",
+        "sort_key.h": "c",
+        "output.h": "c"
+    }
+}
