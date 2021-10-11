@@ -12,6 +12,10 @@ long double **fill_init_matrix(FILE *f, long long m, long long n);
 
 long double **init_matrix(long long m, long long n);
 
-void free_matrix(long long **a, long long m);
+void free_matrix(ld **a, long long m);
+
+void free_csr_matrix(csr_matrix *a);
+
+void read_needless_syms();
 
 #endif
