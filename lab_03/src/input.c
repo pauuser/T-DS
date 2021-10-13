@@ -1,4 +1,5 @@
 #include "input.h"
+#include "operations.h"
 
 long double **create_full_matrix(long long *m, long long *n)
 {
@@ -52,13 +53,13 @@ long double **full_matrix_non_zero(long long m, long long n)
     {
         printf("How many non-zero elements do you want to add to the matrix?\n");
         printf("Answer: ");
-        long long n = 0;
+        long long n_nz = 0;
         long long row = 1;
         long long column = 1;
         int ch;
-        if ((ch = scanf("%lld", &n)) == 1 && n > 0 && n <= m * n)
+        if ((ch = scanf("%lld", &n_nz)) == 1 && n_nz > 0 && n_nz <= m * n)
         {
-            for (long long i = 0; i < n && row >= 0 && column >= 0; i++)
+            for (long long i = 0; i < n_nz && row >= 0 && column >= 0; i++)
             {
                 row = -1;
                 printf("row i = ");
@@ -111,7 +112,7 @@ long double **fill_init_matrix(FILE *f, long long m, long long n)
     if (error == YES)
     {
         read_needless_syms();
-        free(a);
+        free_matrix(a, m);
         a = NULL;
     }
     return a;
@@ -147,17 +148,91 @@ void free_csr_matrix(csr_matrix *a)
     free(a->ja);
 
     ptr_list *cur = (a->ia.next);
-    do
+    while (cur != NULL)
     {
         ptr_list *save = cur->next;
         free(cur);
         cur = save;
     } 
-    while (cur != NULL);
 }
 
 void read_needless_syms()
 {
     char temp[20];
     scanf("%s", temp);
+}
+
+void init_csr_matrix(csr_matrix *a_csr)
+{
+    a_csr->a = NULL;
+    a_csr->nz = 0; 
+    a_csr->ja = NULL;
+    a_csr->ia.i = 0;
+    a_csr->ia.next = NULL;
+}
+
+void input_matrices(ld ***a, ld ***b, csr_matrix *a_csr, csr_matrix *b_csr, ll *m_a, ll *n_a, ll *m_b, ll *n_b)
+{
+    if (*a != NULL && *b != NULL)
+    {
+        printf("You alreay have matrices! Do you want to reinput them? [Y / N]: ");
+        char temp[20];
+        scanf("%s", temp);
+        if (strcmp(temp, "Y") == 0)
+        {
+            free_matrix(*a, *m_a);
+            free_matrix(*b, *m_b);
+            free_csr_matrix(a_csr);
+            free_csr_matrix(b_csr);
+            *a = NULL;
+            *b = NULL;
+        }
+    }
+    if (*a == NULL)
+    {
+        printf("Input the first matrix: \n");
+        *a = create_full_matrix(m_a, n_a);
+    }
+    if (*a == NULL)
+    {
+        printf("The first matrix was not created! You must try again!\n");
+        return;
+    }
+    if (*b == NULL)
+    {
+        printf("Input the second matrix: \n");
+        *b = create_full_matrix(m_b, n_b);
+    }
+    if (*b == NULL)
+    {
+        printf("The second matrix was not created! You must try again!\n");
+        return;
+    }
+    if (a != NULL && b != NULL)
+    {
+        *a_csr = transfer_full_to_csr(*a, m_a, n_a);
+        *b_csr = transfer_full_to_csr(*b, m_b, n_b);
+
+        printf("Do you want to see the input?\n");
+        printf("Full matrix A [Y / N]: ");
+        char temp[20];
+        scanf("%s", temp);
+        if (strcmp(temp, "Y") == 0)
+            print_full_matr(*a, *m_a, *n_a);
+        
+        printf("CSR matrix A [Y / N]: ");
+        scanf("%s", temp);
+        if (strcmp(temp, "Y") == 0)
+            print_csr_matrix(a_csr);
+        
+        printf("Full matrix B [Y / N]: ");
+        scanf("%s", temp);
+        if (strcmp(temp, "Y") == 0)
+            print_full_matr(*b, *m_b, *n_b);
+        
+        printf("CSR matrix B [Y / N]: ");
+        scanf("%s", temp);
+        if (strcmp(temp, "Y") == 0)
+            print_csr_matrix(b_csr);
+    }
 }

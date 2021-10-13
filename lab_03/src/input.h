@@ -18,4 +18,8 @@ void free_csr_matrix(csr_matrix *a);
 
 void read_needless_syms();
 
+void init_csr_matrix(csr_matrix *a);
+
+void input_matrices(ld ***a, ld ***b, csr_matrix *a_csr, csr_matrix *b_csr, ll *m_a, ll *n_a, ll *m_b, ll *n_b);
+
 #endif

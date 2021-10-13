@@ -5,4 +5,6 @@
 
 ld **generate_rand_matrix(ll m, ll n, ll rand_num);
 
+void measure_time(void);
+
 #endif

@@ -1,5 +1,6 @@
 #include "addition.h"
 #include "output.h"
+#include "operations.h"
 
 ld **add_normal_matrices(ld **a, ld **b, ll m, ll n)
 {
@@ -69,4 +70,59 @@ csr_matrix add_csr_matrices(csr_matrix *a, csr_matrix *b, ll m)
     res.nz = nz;
 
     return res;
+}
+
+void add_matrices(ld **a, ld **b, csr_matrix *a_csr, csr_matrix *b_csr, ll *m_a, ll *n_a, ll *m_b, ll *n_b)
+{
+    if (a != NULL && b != NULL && *m_a == *m_b && *n_a == *n_b && *m_a > 0 && *n_a > 0)
+    {
+        printf("How do you want to add matrices? [Full (F) / CSR (C)]: ");
+        char temp[20];
+        scanf("%s", temp);
+        if (strcmp(temp, "F") == 0)
+        {
+            ld **res_normal = add_normal_matrices(a, b, *m_a, *n_a);
+            if (res_normal == NULL)
+                printf("Can't add!\n");
+            else
+            {
+                char temp[20];
+                printf("Do you want to see the result? [Y / N]: ");
+                scanf("%s", temp);
+                if (strcmp(temp, "Y") == 0)
+                    print_full_matr(res_normal, *m_a, *n_a);
+            }
+        }
+        else if (strcmp(temp, "C") == 0)
+        {
+            csr_matrix res_csr = add_csr_matrices(a_csr, b_csr, *m_a);
+            char temp[20];
+
+            printf("Do you want to see the result in CSR form? [Y / N]: ");
+            scanf("%s", temp);
+            if (strcmp(temp, "Y") == 0)
+                print_csr_matrix(&res_csr);
+
+            printf("Do you want to see the full matrix? [Y / N]: ");
+            scanf("%s", temp);
+            if (strcmp(temp, "Y") == 0)
+                print_full_from_csr(&res_csr, *m_a, *n_a);
+
+            printf("Do you want to check the result? [Y / N]: ");
+            scanf("%s", temp);
+            if (strcmp(temp, "Y") == 0)
+            {
+                ld **res_normal = add_normal_matrices(a, b, *m_a, *n_a);
+                csr_matrix res_csr_correct = transfer_full_to_csr(res_normal, m_a, n_a);
+                if (csr_matrices_match(&res_csr_correct, &res_csr, *m_a) == YES)
+                    printf("Matrices match!\n");
+                else
+                    printf("Matrices don't match!\n");
+            }
+        }
+        else
+            printf("Unknown command!\n");
+    }
+    else
+        printf("Wrong input! Can't add matrices!\n");
 }
