@@ -7,4 +7,6 @@ void print_reverse_words();
 
 int print_word_backwards_arr(char *word);
 
+int print_word_backwards_list(char *word);
+
 #endif

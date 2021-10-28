@@ -77,6 +77,39 @@ void list_stack_fill(list_stack **ls, free_mem *mem)
     
 }
 
+void both_stack_fill(arr_stack *arr, list_stack **ls, free_mem *mem)
+{
+    printf("Number of words : ");
+
+    int n = 0;
+    int rc = scanf("%d", &n);
+
+    if (rc != 1)
+        clean_stdin();
+
+    if (n <= 0 || rc != 1)
+        printf("Must be a positive number!\n");
+    else
+    {
+        int i = 0, rc;
+        do
+        {       
+            char *word = malloc((MAX_WORD_LEN + 1) * sizeof(char));
+
+            printf("Input stack element : ");
+            scanf("%s", word);
+
+            rc = arr_stack_push(arr, word);
+            rc = list_stack_push(ls, word, mem);
+            if (rc == STACK_OVERFLOW)
+                i = n;
+            else
+                i++;
+        }
+        while (i < n);
+    }
+}
+
 int list_stack_add(list_stack **ls, free_mem *mem)
 {
     char *word = malloc((MAX_WORD_LEN + 1) * sizeof(char));

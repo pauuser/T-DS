@@ -21,4 +21,6 @@ void print_welcome();
 
 void print_menu();
 
+void both_stack_fill(arr_stack *arr, list_stack **ls, free_mem *mem);
+
 #endif

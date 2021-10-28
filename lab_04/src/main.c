@@ -83,6 +83,10 @@ int main(void)
         {
             print_reverse_words();
         }
+        else
+        {
+            printf("No such option!\n");
+        }
     } 
     while (choice != 0);
     

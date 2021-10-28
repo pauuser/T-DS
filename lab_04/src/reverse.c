@@ -15,16 +15,25 @@ void print_reverse_words()
     free_mem_init(&mem);
 
     printf("Enter words: \n");
-    arr_stack_fill(&stack_a);
+    both_stack_fill(&stack_a, &stack_l, &mem);
 
     printf("Solution via array stack:\n");
     while ((void *)stack_a.ps > stack_a.bottom)
     {
         char *tmp = arr_stack_pop(&stack_a);
-        list_stack_push(&stack_l, tmp, &mem);
         print_word_backwards_arr(tmp);
         printf("\n");
     }
+
+    printf("Solution via list stack:\n");
+    while (stack_l->index != 0)
+    {
+        char *tmp = list_stack_pop(&stack_l, &mem);
+        print_word_backwards_list(tmp);
+        printf("\n");
+
+        free(tmp);
+    }    
 }
 
 int print_word_backwards_arr(char *word)
@@ -83,11 +92,12 @@ int print_word_backwards_list(char *word)
         }
         word++;
     }
-    while ((void *)stack_a.ps > stack_a.bottom)
+
+    while (stack_l->index != 0)
     {
-        printf("%s", *(stack_a.ps));
-        free(arr_stack_pop(&stack_a));
-    }
+        printf("%s", stack_l->data);
+        stack_l = stack_l->prev;
+    }    
 
     return rc;
 }
