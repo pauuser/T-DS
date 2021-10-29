@@ -4,6 +4,7 @@
 #include "../inc/list_stack.h"
 #include "../inc/io.h"
 #include "../inc/reverse.h"
+#include "../inc/time_a.h"
 
 int main(void)
 {
@@ -83,13 +84,19 @@ int main(void)
         {
             print_reverse_words();
         }
-        else
+        else if (choice == 13)
+        {
+            time_output();
+        }
+        else if (choice != 0)
         {
             printf("No such option!\n");
         }
     } 
     while (choice != 0);
     
+    arr_stack_clear(&stack_a);
+    list_stack_clear(&stack_l, &mem);
 
     return 0;
 }

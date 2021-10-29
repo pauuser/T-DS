@@ -60,7 +60,7 @@ void arr_stack_print(arr_stack stack)
         printf("The stack is empty!\n");
     while ((void *)stack.ps > stack.bottom)
     {
-        printf("%s \t-- %p\n", *(stack.ps), (void *)stack.ps);
+        printf("%s \t\t-- %p\n", *(stack.ps), (void *)stack.ps);
         arr_stack_pop(&stack);
     }
 }

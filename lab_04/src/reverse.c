@@ -2,6 +2,7 @@
 #include "../inc/list_stack.h"
 #include "../inc/io.h"
 #include "../inc/arr_stack.h"
+#include "../inc/time_a.h"
 
 void print_reverse_words()
 {
@@ -18,6 +19,7 @@ void print_reverse_words()
     both_stack_fill(&stack_a, &stack_l, &mem);
 
     printf("Solution via array stack:\n");
+    
     while ((void *)stack_a.ps > stack_a.bottom)
     {
         char *tmp = arr_stack_pop(&stack_a);
@@ -33,7 +35,7 @@ void print_reverse_words()
         printf("\n");
 
         free(tmp);
-    }    
+    }
 }
 
 int print_word_backwards_arr(char *word)

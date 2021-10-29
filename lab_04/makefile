@@ -3,7 +3,7 @@ CFLAGS := -std=c99 -Wall -Werror -pedantic -Wvla
 OUT := ./out/
 SRC := ./src/
 INC := ./inc/
-OBJ := $(OUT)arr_stack.o $(OUT)list_stack.o $(OUT)io.o $(OUT)reverse.o 
+OBJ := $(OUT)arr_stack.o $(OUT)list_stack.o $(OUT)io.o $(OUT)reverse.o $(OUT)time_a.o 
 
 run : CFLAGS += -DNDEBUG -g0
 run : app.exe
@@ -28,6 +28,9 @@ $(OUT)io.o : $(SRC)io.c $(INC)io.h
 
 $(OUT)reverse.o : $(SRC)reverse.c $(INC)reverse.h
 	cd out && $(CC) $(CFLAGS) -c .$(SRC)reverse.c
+
+$(OUT)time_a.o : $(SRC)time_a.c $(INC)time_a.h
+	cd out && $(CC) $(CFLAGS) -c .$(SRC)time_a.c
 
 .PHONY : clean debug release
 

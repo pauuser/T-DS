@@ -80,7 +80,7 @@ void list_stack_print(list_stack *stack)
         printf("The stack is empty!\n");
     while (stack->index != 0)
     {
-        printf("%s \t-- %p\n", stack->data, (void *) stack);
+        printf("%s \t\t-- %p\n", stack->data, (void *) stack);
         stack = stack->prev;
     }    
 }
@@ -88,7 +88,9 @@ void list_stack_print(list_stack *stack)
 void list_stack_clear(list_stack **stack, free_mem *mem)
 {
     while ((*stack)->index != 0)
+    {
         free(list_stack_pop(stack, mem));
+    }
 }
 
 void free_mem_init(free_mem *mem)
@@ -143,7 +145,7 @@ void free_mem_print(free_mem *mem)
     while (mem != NULL)
     {
         if (mem->data != 0)
-            printf("%llx\n", mem->data);
+            printf("%llx\n", (long long)mem->data);
         mem = mem->next;
     }
 }

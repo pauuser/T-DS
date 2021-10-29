@@ -136,21 +136,30 @@ void print_welcome()
 
 void print_menu()
 {
-    printf("\nChoose your option!\n");
-    printf("Using array stack:\n");
-    printf("1 - Input elements\n");
-    printf("2 - Add an element\n");
-    printf("3 - Pop an element\n");
-    printf("4 - Print the stack\n");
-    printf("5 - Clear the stack\n");
-    printf("Using list stack:\n");
-    printf("6 - Input elements\n");
-    printf("7 - Add an element\n");
-    printf("8 - Pop an element\n");
-    printf("9 - Print the stack\n");
-    printf("10 - Clear the stack\n");
-    printf("11 - Print free addresses\n");
-    printf("The given problem:\n");
-    printf("12 - Print reversed words in reversed order + metrics\n");
+    printf("\n");
+    printf("+-------------------------------------------------------+\n");
+    printf("| Choose your option!                                   |\n");
+    printf("|                                                       |\n");
+    printf("| Using array stack:                                    |\n");
+    printf("| 1 - Input elements                                    |\n");
+    printf("| 2 - Add an element                                    |\n");
+    printf("| 3 - Pop an element                                    |\n");
+    printf("| 4 - Print the stack                                   |\n");
+    printf("| 5 - Clear the stack                                   |\n");
+    printf("|                                                       |\n");
+    printf("| Using list stack:                                     |\n");
+    printf("| 6 - Input elements                                    |\n");
+    printf("| 7 - Add an element                                    |\n");
+    printf("| 8 - Pop an element                                    |\n");
+    printf("| 9 - Print the stack                                   |\n");
+    printf("| 10 - Clear the stack                                  |\n");
+    printf("| 11 - Print free addresses                             |\n");
+    printf("|                                                       |\n");
+    printf("| The given problem:                                    |\n");
+    printf("| 12 - Print reversed words in reversed order + metrics |\n");
+    printf("|                                                       |\n");
+    printf("| Analysis:                                             |\n");
+    printf("| 13 - Output time comparison                           |\n");
+    printf("+-------------------------------------------------------+\n");
     printf("\nYour choice: ");
 }
