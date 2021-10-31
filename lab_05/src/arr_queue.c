@@ -95,6 +95,7 @@ void arr_queue_print(arr_queue *queue)
     {
         int n = queue->count;
         float tmp;
+        
         for (int i = 0; i < n; i++)
         {
             arr_queue_pop(queue, &tmp);

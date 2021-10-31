@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARR_QUEUE_SIZE  4
+#define ARR_QUEUE_SIZE  1500
 
 /*
 Кольцевая очередь в виде массива
