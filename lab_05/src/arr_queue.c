@@ -9,7 +9,7 @@ int arr_queue_init(arr_queue *queue)
 {
     int rc = OK;
 
-    float *tmp = malloc(sizeof(float) * ARR_QUEUE_SIZE);
+    double *tmp = malloc(sizeof(double) * ARR_QUEUE_SIZE);
     if (tmp == NULL)
         rc = NO_MEMORY;
     else
@@ -27,7 +27,7 @@ int arr_queue_init(arr_queue *queue)
 /*
 Добавление элемента в конец очереди
 */
-int arr_queue_push(arr_queue *queue, double process_time)
+int arr_queue_push(arr_queue *queue, double come_time)
 {
     int rc = OK;
 
@@ -41,7 +41,7 @@ int arr_queue_push(arr_queue *queue, double process_time)
     else
     {
         queue->count++;
-        queue->arr[queue->pin] = process_time;
+        queue->arr[queue->pin] = come_time;
     }
 
     return rc;
