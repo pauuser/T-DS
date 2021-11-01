@@ -1,3 +1,6 @@
+#ifndef __H_IO__
+#define __H_IO__
+
 #include <stdio.h>
 
 void print_welcome();
@@ -11,3 +14,5 @@ void change_data(int *requests_num,
                         double *min_t2, double *max_t2,
                             double *min_pr1, double *max_pr1,
                                 double *min_pr2, double *max_pr2);
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef __H_ARR_QUEUE__
+#define __H_ARR_QUEUE__
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -33,3 +36,5 @@ void arr_queue_clean(arr_queue *queue);
 
 // Печать очереди
 void arr_queue_print(arr_queue *queue);
+
+#endif

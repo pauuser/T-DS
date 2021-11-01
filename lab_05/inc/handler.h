@@ -1,3 +1,6 @@
+#ifndef __H_HANDLER__
+#define __H_HANDLER__
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -27,3 +30,5 @@ void handler_init(handler *handler);
 
 // Добавление запроса в обработчик
 void handler_add(handler *handler, request_t type, double cur_time, double process_time);
+
+#endif

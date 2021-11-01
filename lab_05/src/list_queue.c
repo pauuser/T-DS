@@ -37,7 +37,7 @@ int create_node(list_node **node, double tmp)
 /*
 Добавление элемента в очередь
 */
-int list_queue_push(list_queue *queue, double tmp)
+int list_queue_push(list_queue *queue, double tmp, free_mem *mem)
 {
     int rc = OK;
 
@@ -58,6 +58,9 @@ int list_queue_push(list_queue *queue, double tmp)
                 queue->pin->next = new;
                 queue->pin = new;
             }
+
+            free_mem_del(mem, (size_t) new);
+
             queue->count++;
         }
         else
@@ -70,7 +73,7 @@ int list_queue_push(list_queue *queue, double tmp)
 /*
 Удаление элемента из очереди
 */
-int list_queue_pop(list_queue *queue, double *tmp)
+int list_queue_pop(list_queue *queue, double *tmp, free_mem *mem)
 {
     int rc = OK;
 
@@ -82,6 +85,7 @@ int list_queue_pop(list_queue *queue, double *tmp)
         *tmp = queue->pout->data;
 
         list_node *to_free = queue->pout;
+        free_mem_add(mem, (size_t) to_free);
         
         queue->pout = to_free->next;
 
@@ -97,13 +101,13 @@ int list_queue_pop(list_queue *queue, double *tmp)
 /*
 Очистка очереди
 */
-void list_queue_clean(list_queue *queue)
+void list_queue_clean(list_queue *queue, free_mem *mem)
 {
     double tmp;
 
     while (queue->count != 0)
     {
-        list_queue_pop(queue, &tmp);
+        list_queue_pop(queue, &tmp, mem);
     }
 
     queue->pin = NULL;
@@ -113,7 +117,7 @@ void list_queue_clean(list_queue *queue)
 /*
 Печать очереди
 */
-void list_queue_print(list_queue *queue)
+void list_queue_print(list_queue *queue, free_mem *mem)
 {
     if (queue->count == 0)
         printf("Queue is empty!\n");
@@ -124,11 +128,78 @@ void list_queue_print(list_queue *queue)
 
         for (int i = 0; i < n; i++)
         {
-            list_queue_pop(queue, &tmp);
-            list_queue_push(queue, tmp);
+            list_queue_pop(queue, &tmp, mem);
+            list_queue_push(queue, tmp, mem);
 
             printf("<- %.2f ", tmp);
         }
         printf("<-\n");
+    }
+}
+
+/*
+Инциализация списка свободных адресов
+*/
+void free_mem_init(free_mem *mem)
+{
+    mem->data = 0;
+    mem->next = NULL;
+}
+
+/*
+Добавление адреса в список свободных адресов
+*/
+int free_mem_add(free_mem *mem, size_t add)
+{
+    int rc = OK;
+
+    free_mem *tmp = malloc(sizeof(free_mem));
+    if (tmp == NULL)
+        rc = NO_MEMORY;
+    else
+    {
+        tmp->data = add;
+        tmp->next = NULL;
+    }
+
+    while (rc == OK && mem->next != NULL)
+        mem = mem->next;
+    
+    if (rc == OK)
+        mem->next = tmp;
+
+    return rc;
+}
+
+/*
+Удаление адреса из списка свободных адресов
+*/
+void free_mem_del(free_mem *mem, size_t del)
+{
+    while (mem->next != NULL && mem->next->data != del)
+        mem = mem->next;
+    
+    if (mem->next != NULL && mem->next->data == del)
+    {
+        free_mem *to_free = mem->next;
+        mem->next = to_free->next;
+
+        free(to_free);
+    }
+    else if (mem->next == NULL && mem->data == del)
+        free(mem);
+}
+
+/*
+Вывод массива свободных адресов
+*/
+void free_mem_print(free_mem *mem)
+{
+    printf("Free addresses:\n");
+    while (mem != NULL)
+    {
+        if (mem->data != 0)
+            printf("%llx\n", (long long)mem->data);
+        mem = mem->next;
     }
 }

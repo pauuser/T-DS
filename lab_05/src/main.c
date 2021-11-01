@@ -64,7 +64,7 @@ int main(void)
         }
         else if (choice == 4)
         {
-
+            measure_time();
         }
         else if (choice != 0)
         {
