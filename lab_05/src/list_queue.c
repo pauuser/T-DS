@@ -17,7 +17,7 @@ void list_queue_init(list_queue *queue)
 /*
 Создание ноды списка
 */
-int create_node(list_node **node, float tmp)
+int create_node(list_node **node, double tmp)
 {
     int rc = OK;
 
@@ -37,7 +37,7 @@ int create_node(list_node **node, float tmp)
 /*
 Добавление элемента в очередь
 */
-int list_queue_push(list_queue *queue, float tmp)
+int list_queue_push(list_queue *queue, double tmp)
 {
     int rc = OK;
 
@@ -70,7 +70,7 @@ int list_queue_push(list_queue *queue, float tmp)
 /*
 Удаление элемента из очереди
 */
-int list_queue_pop(list_queue *queue, float *tmp)
+int list_queue_pop(list_queue *queue, double *tmp)
 {
     int rc = OK;
 
@@ -95,7 +95,7 @@ int list_queue_pop(list_queue *queue, float *tmp)
 */
 void list_queue_clean(list_queue *queue)
 {
-    float tmp;
+    double tmp;
 
     while (queue->count != 0)
     {
@@ -116,7 +116,7 @@ void list_queue_print(list_queue *queue)
     else
     {
         int n = queue->count;
-        float tmp;
+        double tmp;
 
         for (int i = 0; i < n; i++)
         {

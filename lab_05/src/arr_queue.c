@@ -27,7 +27,7 @@ int arr_queue_init(arr_queue *queue)
 /*
 Добавление элемента в конец очереди
 */
-int arr_queue_push(arr_queue *queue, float process_time)
+int arr_queue_push(arr_queue *queue, double process_time)
 {
     int rc = OK;
 
@@ -50,7 +50,7 @@ int arr_queue_push(arr_queue *queue, float process_time)
 /*
 Удаление элемента из очереди
 */
-int arr_queue_pop(arr_queue *queue, float *ret_time)
+int arr_queue_pop(arr_queue *queue, double *ret_time)
 {
     int rc = OK;
 
@@ -94,7 +94,7 @@ void arr_queue_print(arr_queue *queue)
     else
     {
         int n = queue->count;
-        float tmp;
+        double tmp;
         
         for (int i = 0; i < n; i++)
         {
