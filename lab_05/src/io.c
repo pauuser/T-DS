@@ -34,7 +34,98 @@ void clean_stdin()
     while ((ch = getchar()) != '\n' && ch != EOF);
 }
 
-void change_data()
+void change_data(int *requests_num, 
+                    double *min_t1, double *max_t1, 
+                        double *min_t2, double *max_t2,
+                            double *min_pr1, double *max_pr1,
+                                double *min_pr2, double *max_pr2)
 {
-    
+    printf("Current values:\n");
+    printf("1 : Number of 1st queue requests      : %d\n", *requests_num);
+    printf("2 : Time of 1st queue requests input  : from %.2f to %.2f\n", *min_t1, *max_t1);
+    printf("3 : Time of 2nd queue requests input  : from %.2f to %.2f\n", *min_t2, *max_t2);
+    printf("4 : Time of 1st queue processing      : from %.2f to %.2f\n", *min_pr1, *max_pr1);
+    printf("5 : Time of 2nd queue processing      : from %.2f to %.2f\n", *min_pr2, *max_pr2);
+    printf("You want to change : ");
+
+    int choice = 0;
+    if (scanf("%d", &choice) != 1)
+    {
+        printf("Wrong input!\n");
+        clean_stdin();
+    }
+    else if (choice == 1)
+    {
+        int n = 0;
+        printf("Input number of requests: ");
+        if ((scanf("%d", &n) != 1) || (n < 1))
+        {
+            printf("Wrong input!\n");
+            clean_stdin();
+        }
+        else
+        {
+            *requests_num = n;
+        }
+    }
+    else if (choice == 2)
+    {
+        double a = 0.0, b = 0.0;
+        printf("Input time of 1st queue requests input: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        {
+            printf("Wrong input!\n");
+            clean_stdin();
+        }
+        else
+        {
+            *min_t1 = a;
+            *max_t1 = b;
+        }
+    }
+    else if (choice == 3)
+    {
+        double a = 0.0, b = 0.0;
+        printf("Input time of 2nd queue requests input: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        {
+            printf("Wrong input!\n");
+            clean_stdin();
+        }
+        else
+        {
+            *min_t2 = a;
+            *max_t2 = b;
+        }
+    }
+    else if (choice == 4)
+    {
+        double a = 0.0, b = 0.0;
+        printf("Input time of 1st queue processing: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        {
+            printf("Wrong input!\n");
+            clean_stdin();
+        }
+        else
+        {
+            *min_pr1 = a;
+            *max_pr1 = b;
+        }
+    }
+    else if (choice == 5)
+    {
+        double a = 0.0, b = 0.0;
+        printf("Input time of 2nd queue processing: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        {
+            printf("Wrong input!\n");
+            clean_stdin();
+        }
+        else
+        {
+            *min_pr2 = a;
+            *max_pr2 = b;
+        }
+    }
 }

@@ -55,8 +55,8 @@ int arr_process_modeling(int requests_num,
 
             if (rc != OK)
             {
-                printf("The queue is full!\n");
-                continue;
+                printf("The 1st queue is full!\n");
+                break;
             }
 
             sum_in_time1 += next_request1 - cur_time;
@@ -70,8 +70,8 @@ int arr_process_modeling(int requests_num,
 
             if (rc != OK)
             {
-                printf("The queue is full!\n");
-                continue;
+                printf("The 2nd queue is full!\n");
+                break;
             }
 
             sum_in_time2 += next_request2 - cur_time;
@@ -242,8 +242,8 @@ int list_process_modeling(int requests_num,
 
             if (rc != OK)
             {
-                printf("The queue is full!\n");
-                continue;
+                printf("The 1st queue is full!\n");
+                break;
             }
 
             sum_in_time1 += next_request1 - cur_time;
@@ -257,8 +257,8 @@ int list_process_modeling(int requests_num,
 
             if (rc != OK)
             {
-                printf("The queue is full!\n");
-                continue;
+                printf("The 2nd queue is full!\n");
+                break;
             }
 
             sum_in_time2 += next_request2 - cur_time;

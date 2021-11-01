@@ -37,7 +37,10 @@ int main(void)
         int rc = scanf("%d", &choice);
 
         if (rc != 1)
+        {
+            printf("Wrong input!\n");
             clean_stdin();
+        }
         else if (choice == 1)
         {
             arr_process_modeling(requests_num, min_t1, max_t1, 
@@ -54,7 +57,10 @@ int main(void)
         }
         else if (choice == 3)
         {
-
+            change_data(&requests_num, &min_t1, &max_t1, 
+                                                &min_t2, &max_t2, 
+                                                    &min_pr1, &max_pr1,
+                                                        &min_pr2, &max_pr2);
         }
         else if (choice == 4)
         {

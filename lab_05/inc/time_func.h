@@ -2,4 +2,4 @@
 #include <stdio.h>
 #include <time.h>
 
-double rtime(int left, int right);
+double rtime(double left, double right);
