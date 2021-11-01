@@ -74,15 +74,19 @@ int list_queue_pop(list_queue *queue, double *tmp)
 {
     int rc = OK;
 
-    if (queue->count == 0)
+    if (queue->count < 1)
         rc = EMPTY_Q;
     else
     {
+        queue->count = queue->count - 1;
         *tmp = queue->pout->data;
-        list_node *to_free = queue->pout;
 
+        list_node *to_free = queue->pout;
+        
         queue->pout = to_free->next;
-        queue->count--;
+
+        if (queue->pout == NULL)
+            queue->pin = NULL;
 
         free(to_free);
     }
