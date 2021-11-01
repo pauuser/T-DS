@@ -57,8 +57,8 @@ void change_data(int *requests_num,
     else if (choice == 1)
     {
         int n = 0;
-        printf("Input number of requests: ");
-        if ((scanf("%d", &n) != 1) || (n < 1))
+        printf("Input number of requests [1, 1 000 000]: ");
+        if ((scanf("%d", &n) != 1) || (n < 1) || (n > 1000000))
         {
             printf("Wrong input!\n");
             clean_stdin();
@@ -71,8 +71,8 @@ void change_data(int *requests_num,
     else if (choice == 2)
     {
         double a = 0.0, b = 0.0;
-        printf("Input time of 1st queue requests input: ");
-        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        printf("Input time of 1st queue requests input [0, 10 000]: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b || a > 10000 || b > 10000)
         {
             printf("Wrong input!\n");
             clean_stdin();
@@ -86,8 +86,8 @@ void change_data(int *requests_num,
     else if (choice == 3)
     {
         double a = 0.0, b = 0.0;
-        printf("Input time of 2nd queue requests input: ");
-        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        printf("Input time of 2nd queue requests input [0, 10 000]: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b || a > 10000 || b > 10000)
         {
             printf("Wrong input!\n");
             clean_stdin();
@@ -101,8 +101,8 @@ void change_data(int *requests_num,
     else if (choice == 4)
     {
         double a = 0.0, b = 0.0;
-        printf("Input time of 1st queue processing: ");
-        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        printf("Input time of 1st queue processing [0, 10 000]: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b || a > 10000 || b > 10000)
         {
             printf("Wrong input!\n");
             clean_stdin();
@@ -116,8 +116,8 @@ void change_data(int *requests_num,
     else if (choice == 5)
     {
         double a = 0.0, b = 0.0;
-        printf("Input time of 2nd queue processing: ");
-        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b)
+        printf("Input time of 2nd queue processing [0, 10 000]: ");
+        if (scanf("%lf", &a) != 1 || scanf("%lf", &b) != 1 || a < 0 || b < 0 || a >= b || a > 10000 || b > 10000)
         {
             printf("Wrong input!\n");
             clean_stdin();

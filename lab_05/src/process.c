@@ -365,7 +365,6 @@ int list_process_modeling(int requests_num,
         printf("Overall time: %lld usec\n", programme_time);
         printf("Storage: %lld bytes\n", 2 * sizeof(list_node *) + sizeof(list_node) * (max_size));
         printf("Overall time: %f time equivalents\n", cur_time);
-        printf("Handler standby: %f\n\n", handler.time_standby);
 
         printf("Queue 1:\n");
         printf("Requests in:  %d\n", handler.type1_processed + queue1.count);

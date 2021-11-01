@@ -11,13 +11,12 @@
 */
 typedef struct arr_queue
 {
-    int pin; // указатель на начало
-    int pout; // указатель на конец
+    int pin; // указатель на конец
+    int pout; // указатель на начало
     int size; // размер массива
     int count; // количество элементов в очереди
     double *arr; // массив, элементы коротого - время прихода
 } arr_queue;
-
 
 // Инициализация очереди
 int arr_queue_init(arr_queue *queue);

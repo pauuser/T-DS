@@ -22,7 +22,7 @@ typedef struct handler_t
     double time_standby;
 
     request_t in_process;
-    float time_finish;
+    double time_finish;
 } handler;
 
 // Инициализация обслуживающего аппарата
