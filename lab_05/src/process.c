@@ -19,11 +19,11 @@ int arr_process_modeling(int requests_num,
     handler handler = { 0 };
     handler_init(&handler);
 
-    double time_step = 0.01;
+    double time_step = 0.0001;
     double cur_time = 0.0;
 
-    long sum_len1 = 0;
-    long sum_len2 = 0;
+    long long sum_len1 = 0;
+    long long sum_len2 = 0;
 
     double sum_time_in_line1 = 0;
     double sum_time_in_line2 = 0;
@@ -34,10 +34,18 @@ int arr_process_modeling(int requests_num,
     double sum_process_handler1 = 0.0;
     double sum_process_handler2 = 0.0;
 
+    double sum_in_time1 = 0.0;
+    double sum_in_time2 = 0.0;
+
+    int last_printed = 50;
+
     int rc = OK;
 
-    while (!(handler.type1_processed == requests_num && handler.in_process != ONE))
+    while (!(handler.type1_processed >= requests_num))
     {
+        sum_len1 += queue1.count;
+        sum_len2 += queue2.count;
+
         // пополнение первой очереди
         if (fabs(next_request1 - cur_time) < EPS)
         {
@@ -50,7 +58,7 @@ int arr_process_modeling(int requests_num,
                 break;
             }
 
-            sum_len1++;
+            sum_in_time1 += next_request1 - cur_time;
         }
         
         // пополнение второй очереди
@@ -65,37 +73,39 @@ int arr_process_modeling(int requests_num,
                 break;
             }
 
-            sum_len2++;
+            sum_in_time2 += next_request2 - cur_time;
         }
 
         // если очередь пустая - добавляем время простоя
-        if ((queue1.count == 0) && (queue2.count == 0) && (handler.in_process = NONE))
+        if ((queue1.count == 0) && (queue2.count == 0) && (handler.in_process == NONE))
             handler.time_standby += time_step;
-        
         // обработчик освободился
         else if (fabs(handler.time_finish - cur_time) < EPS)
         {
             handler.in_process = NONE;
-            if (handler.type1_processed % 100 == 0)
+            if (handler.type1_processed % 100 < 5 && last_printed < handler.type1_processed)
             {
+                // каждые 100 запросов первого типа - печать
                 printf("========================================\n");
-                printf("PROCESSED : %d requests from Queue 1!\n", queue1.count);
+                printf("PROCESSED : %d requests from Queue 1!\n", handler.type1_processed);
 
                 printf("Queue 1:\n");
-                printf("Average queue len: %d\n", (int) ((double) sum_len1 / (cur_time * 100)));
+                printf("Average queue len: %f\n", (((double) sum_len1) / (cur_time * 10000)));
                 printf("Current queue len: %d\n", queue1.count);
                 printf("Requests in:  %d\n", handler.type1_processed + queue1.count);
                 printf("Requests out: %d\n", handler.type1_processed);
-                printf("Average time in queue: %f\n", sum_time_in_line1 / handler.type1_processed);
+                printf("Average time in queue: %f\n\n", sum_time_in_line1 / handler.type1_processed);
 
                 printf("Queue 2:\n");
-                printf("Average queue len: %d\n", (int) ((double) sum_len2 / (cur_time * 100)));
+                printf("Average queue len: %f\n", ((double) sum_len2 / (cur_time * 10000)));
                 printf("Current queue len: %d\n", queue2.count);
                 printf("Requests in:  %d\n", handler.type2_processed + queue2.count);
                 printf("Requests out: %d\n", handler.type2_processed);
                 printf("Average time in queue: %f\n\n", sum_time_in_line2 / handler.type2_processed);
+
+                last_printed = handler.type1_processed + 50;
             }
-        }    
+        } 
         
         // добавление в обработчик элемента первой очереди
         if (queue1.count != 0 && handler.in_process == NONE)
@@ -116,7 +126,7 @@ int arr_process_modeling(int requests_num,
             arr_queue_pop(&queue2, &come_time);
 
             double process_time = rtime(min_pr2, max_pr2);
-            handler_add(&handler, ONE, cur_time, process_time);
+            handler_add(&handler, TWO, cur_time, process_time);
 
             sum_time_in_line2 += cur_time - come_time;
             sum_process_handler2 += process_time;
@@ -142,14 +152,33 @@ int arr_process_modeling(int requests_num,
     printf("Requests in:  %d\n", handler.type2_processed + queue2.count + handler.type1_processed + queue1.count);
     printf("Requests out: %d\n\n", handler.type1_processed + handler.type2_processed);
 
-    printf("RESULTS CHECK:\n");
+    double expected = 0.0;
+
+    printf("RESULTS CHECK:\n\n");
+
     printf("Queue 1:\n");
     printf("[IN]:\n");
-    printf("Expected time : %f\n", 0.5 * (max_t1 + min_t1) * requests_num);
-    printf("Real time     : %f\n", );
+    expected = 0.5 * (max_t1 + min_t1) * requests_num;
+    printf("Expected time : %f\n", expected);
+    printf("Real time     : %f\n", sum_in_time1);
+    printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time1) / expected * 100);
     printf("[OUT]:\n");
-    printf("Expected time : %f\n", 0.5 * (max_pr1 + min_pr2) * requests_num);
-    printf("Real time     : %f\n", sum_process_1);
+    expected = 0.5 * (max_pr1 + min_pr1) * requests_num;
+    printf("Expected time : %f\n", expected);
+    printf("Real time     : %f\n", sum_process_handler1);
+    printf("Difference    : %.2f%%\n\n", fabs(expected - sum_process_handler1) / expected * 100);
 
+    printf("Queue 2:\n");
+    printf("[IN]:\n");
+    expected = 0.5 * (max_t2 + min_t2) * (handler.type2_processed + queue2.count);
+    printf("Expected time : %f\n", expected);
+    printf("Real time     : %f\n", sum_in_time2);
+    printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time2) / expected * 100);
+    printf("[OUT]:\n");
+    expected = 0.5 * (max_pr2 + min_pr2) * handler.type2_processed;
+    printf("Expected time : %f\n", expected);
+    printf("Real time     : %f\n", sum_process_handler2);
+    printf("Difference    : %.2f%%\n", fabs(expected - sum_process_handler2) / expected * 100);
 
+    return 0;
 }

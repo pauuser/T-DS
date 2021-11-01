@@ -23,7 +23,7 @@ void handler_add(handler *handler, request_t type, double cur_time, double proce
     if (type == TWO)
         handler->type2_processed += 1;
     
-    if (fabs(process_time) < EPS)
+    if (fabs(process_time) > EPS)
         handler->in_process = type;
     else
         handler->in_process = NONE;

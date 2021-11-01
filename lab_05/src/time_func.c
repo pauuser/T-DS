@@ -2,5 +2,6 @@
 
 double rtime(int left, int right)
 {
-    return (right - left) * ((double)rand() / (double)RAND_MAX) + left;
+    double a = (right - left) * ((double)rand() / (double)RAND_MAX) + left;
+    return (double)((int)(a * 1000)) / 1000;
 }

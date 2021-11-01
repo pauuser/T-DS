@@ -3,7 +3,7 @@ CFLAGS := -std=c99 -Wall -Werror -pedantic -Wvla
 OUT := ./out/
 SRC := ./src/
 INC := ./inc/
-OBJ := $(OUT)arr_queue.o $(OUT)time_func.o $(OUT)list_queue.o
+OBJ := $(OUT)arr_queue.o $(OUT)time_func.o $(OUT)list_queue.o $(OUT)process.o $(OUT)handler.o
 
 run : CFLAGS += -DNDEBUG -g0
 run : app.exe
@@ -25,6 +25,12 @@ $(OUT)list_queue.o : $(SRC)list_queue.c $(INC)list_queue.h
 
 $(OUT)time_func.o : $(SRC)time_func.c $(INC)time_func.h
 	cd out && $(CC) $(CFLAGS) -c .$(SRC)time_func.c
+
+$(OUT)handler.o : $(SRC)handler.c $(INC)handler.h
+	cd out && $(CC) $(CFLAGS) -c .$(SRC)handler.c
+
+$(OUT)process.o : $(SRC)process.c $(INC)process.h
+	cd out && $(CC) $(CFLAGS) -c .$(SRC)process.c
 
 .PHONY : clean debug release
 

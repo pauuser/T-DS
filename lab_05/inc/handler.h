@@ -5,6 +5,11 @@
 #include "../inc/process.h"
 
 /*
+Описание типа заявок
+*/
+typedef enum { NONE, ONE, TWO } request_t;
+
+/*
 Описание обслуживающего аппарата
 */
 typedef struct handler_t
@@ -16,11 +21,6 @@ typedef struct handler_t
     request_t in_process;
     float time_finish;
 } handler;
-
-/*
-Описание типа заявок
-*/
-typedef enum { NONE, ONE, TWO } request_t;
 
 // Инициализация обслуживающего аппарата
 void handler_init(handler *handler);
