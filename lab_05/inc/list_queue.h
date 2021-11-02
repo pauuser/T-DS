@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define LIST_QUEUE_SIZE 1500
+#define LIST_QUEUE_SIZE 15000
 
 /*
 Нода списка

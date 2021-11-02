@@ -41,7 +41,7 @@ int arr_process_modeling(int requests_num,
 
     int last_printed = 50;
 
-    struct timeval tv_start, tv_stop;
+    struct timeval tv_start, tv_stop, tv_print_start, tv_print_stop;
     int64_t programme_time = 0;
 
     int rc = OK, stop = 0;
@@ -93,6 +93,7 @@ int arr_process_modeling(int requests_num,
             handler.in_process = NONE;
             if (handler.type1_processed % 100 < 5 && last_printed < handler.type1_processed)
             {
+                gettimeofday(&tv_print_start, NULL);
                 // каждые 100 запросов первого типа - печать
                 printf("========================================\n");
                 printf("PROCESSED : %d requests from Queue 1!\n", handler.type1_processed);
@@ -110,6 +111,10 @@ int arr_process_modeling(int requests_num,
                 printf("Requests in:  %d\n", handler.type2_processed + queue2.count);
                 printf("Requests out: %d\n", handler.type2_processed);
                 printf("Average time in queue: %f\n\n", sum_time_in_line2 / handler.type2_processed);
+                gettimeofday(&tv_print_stop, NULL);
+
+                programme_time -= (tv_print_stop.tv_sec - tv_print_start.tv_sec) * 1000000LL +
+                                (tv_print_stop.tv_usec - tv_print_start.tv_usec);
 
                 last_printed = handler.type1_processed + 50;
             }
@@ -153,7 +158,6 @@ int arr_process_modeling(int requests_num,
         printf("Overall time: %lld usec\n", programme_time);
         printf("Storage: %lld bytes\n", 4 * sizeof(int) + sizeof(double) * ARR_QUEUE_SIZE);
         printf("Overall time: %f time equivavlents\n", cur_time);
-        printf("Handler standby: %f\n\n", handler.time_standby);
 
         printf("Queue 1:\n");
         printf("Requests in:  %d\n", handler.type1_processed + queue1.count);
@@ -167,39 +171,48 @@ int arr_process_modeling(int requests_num,
         printf("Requests in:  %d\n", handler.type2_processed + queue2.count + handler.type1_processed + queue1.count);
         printf("Requests out: %d\n\n", handler.type1_processed + handler.type2_processed);
 
-        double expected = 0.0;
+        double expected1 = 0.0, expected2 = 0.0, expected10 = 0.0;
+        sum_in_time1 = handler.type1_processed + queue1.count;
+        sum_in_time2 = handler.type2_processed + queue2.count;
 
         printf("RESULTS CHECK:\n\n");
-
-        printf("Queue 1:\n");
-        printf("[IN]:\n");
-        expected = 0.5 * (max_t1 + min_t1) * requests_num;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_in_time1);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time1) / expected * 100);
-        printf("[OUT]:\n");
-        expected = 0.5 * (max_pr1 + min_pr1) * requests_num;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_process_handler1);
-        printf("Difference    : %.2f%%\n\n", fabs(expected - sum_process_handler1) / expected * 100);
-
-        printf("Queue 2:\n");
-        printf("[IN]:\n");
-        expected = 0.5 * (max_t2 + min_t2) * (handler.type2_processed + queue2.count);
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_in_time2);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time2) / expected * 100);
-        printf("[OUT]:\n");
-        expected = 0.5 * (max_pr2 + min_pr2) * handler.type2_processed;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_process_handler2);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_process_handler2) / expected * 100);
+        
+        expected10 = 0.5 * (max_t1 + min_t1) * requests_num;
+        if (0.5 * (max_pr1 + min_pr1) > 0.5 * (max_t1 + min_t1))
+        {
+            printf("Queue 1:\n");
+            printf("[OUT]:\n");
+            expected2 = 0.5 * (max_pr1 + min_pr1) * requests_num;
+            printf("Expected time : %f\n", expected2);
+            printf("Real time     : %f\n", cur_time);
+            printf("Difference    : %.2f%%\n\n", fabs(expected2 - cur_time) / expected2 * 100);
+            printf("Queue 2:\n");
+            printf("[OUT]:\n");
+            expected2 = 0;
+            printf("Expected time : %f\n", expected2);
+            printf("Real time     : %f\n", sum_process_handler2);
+            printf("Difference    : %.2f%%\n", expected2 > 0 ? fabs(expected2 - sum_process_handler2) / expected2 * 100 : expected2);
+        }
+        else
+        {
+            printf("Queue 1:\n");
+            printf("[IN]:\n");
+            expected10 = 0.5 * (max_pr1 + min_pr1) > 0.5 * (max_t1 + min_t1) ? 0.5 * (max_pr1 + min_pr1) * requests_num : expected10;
+            printf("Expected time : %f\n", expected10);
+            printf("Real time     : %f\n", cur_time);
+            printf("Difference    : %.2f%%\n", fabs(expected10 - sum_in_time1 - sum_in_time2) / expected10 * 100);
+            expected1 = expected10 / (0.5 * (min_t2 + max_t2));
+            printf("Queue 2:\n");
+            printf("[IN]:\n");
+            printf("Expected time : %f\n", expected1);
+            printf("Real time     : %f\n", sum_in_time2);
+            printf("Difference    : %.2f%%\n", fabs(expected1 - sum_in_time2) / expected1 * 100);
+        }
     }
     else
     {
         printf("One of the queues broke down! Error!\n");
     }
-
 
     arr_queue_clean(&queue1);
     arr_queue_clean(&queue2);
@@ -250,7 +263,7 @@ int list_process_modeling(int requests_num,
 
     int rc = OK, stop = 0;
 
-    struct timeval tv_start, tv_stop;
+    struct timeval tv_start, tv_stop, tv_print_start, tv_print_stop;
     int64_t programme_time = 0;
 
     int max_size = 0;
@@ -306,6 +319,7 @@ int list_process_modeling(int requests_num,
             if (handler.type1_processed % 100 < 5 && last_printed < handler.type1_processed)
             {
                 // каждые 100 запросов первого типа - печать
+                gettimeofday(&tv_print_start, NULL);
                 printf("========================================\n");
                 printf("PROCESSED : %d requests from Queue 1!\n", handler.type1_processed);
 
@@ -322,6 +336,10 @@ int list_process_modeling(int requests_num,
                 printf("Requests in:  %d\n", handler.type2_processed + queue2.count);
                 printf("Requests out: %d\n", handler.type2_processed);
                 printf("Average time in queue: %f\n\n", sum_time_in_line2 / handler.type2_processed);
+                gettimeofday(&tv_print_stop, NULL);
+
+                programme_time -= (tv_print_stop.tv_sec - tv_print_start.tv_sec) * 1000000LL +
+                                (tv_print_stop.tv_usec - tv_print_start.tv_usec);
 
                 last_printed = handler.type1_processed + 50;
             }
@@ -378,33 +396,42 @@ int list_process_modeling(int requests_num,
         printf("Requests in:  %d\n", handler.type2_processed + queue2.count + handler.type1_processed + queue1.count);
         printf("Requests out: %d\n\n", handler.type1_processed + handler.type2_processed);
 
-        double expected = 0.0;
+        double expected1 = 0.0, expected2 = 0.0, expected10 = 0.0;
+        sum_in_time1 = handler.type1_processed + queue1.count;
+        sum_in_time2 = handler.type2_processed + queue2.count;
 
         printf("RESULTS CHECK:\n\n");
 
-        printf("Queue 1:\n");
-        printf("[IN]:\n");
-        expected = 0.5 * (max_t1 + min_t1) * requests_num;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_in_time1);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time1) / expected * 100);
-        printf("[OUT]:\n");
-        expected = 0.5 * (max_pr1 + min_pr1) * requests_num;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_process_handler1);
-        printf("Difference    : %.2f%%\n\n", fabs(expected - sum_process_handler1) / expected * 100);
-
-        printf("Queue 2:\n");
-        printf("[IN]:\n");
-        expected = 0.5 * (max_t2 + min_t2) * (handler.type2_processed + queue2.count);
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_in_time2);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_in_time2) / expected * 100);
-        printf("[OUT]:\n");
-        expected = 0.5 * (max_pr2 + min_pr2) * handler.type2_processed;
-        printf("Expected time : %f\n", expected);
-        printf("Real time     : %f\n", sum_process_handler2);
-        printf("Difference    : %.2f%%\n", fabs(expected - sum_process_handler2) / expected * 100);
+        expected10 = 0.5 * (max_t1 + min_t1) * requests_num;
+        if (0.5 * (max_pr1 + min_pr1) > 0.5 * (max_t1 + min_t1))
+        {
+            printf("Queue 1:\n");
+            printf("[OUT]:\n");
+            expected2 = 0.5 * (max_pr1 + min_pr1) * requests_num;
+            printf("Expected time : %f\n", expected2);
+            printf("Real time     : %f\n", cur_time);
+            printf("Difference    : %.2f%%\n\n", fabs(expected2 - cur_time) / expected2 * 100);
+            printf("Queue 2:\n");
+            printf("[OUT]:\n");
+            expected2 = 0;
+            printf("Expected time : %f\n", expected2);
+            printf("Real time     : %f\n", sum_process_handler2);
+            printf("Difference    : %.2f%%\n", expected2 > 0 ? fabs(expected2 - sum_process_handler2) / expected2 * 100 : expected2);
+        }
+        else
+        {
+            printf("[IN]:\n");
+            expected10 = 0.5 * (max_pr1 + min_pr1) > 0.5 * (max_t1 + min_t1) ? 0.5 * (max_pr1 + min_pr1) * requests_num : expected10;
+            printf("Expected time : %f\n", expected10);
+            printf("Real time     : %f\n", cur_time);
+            printf("Difference    : %.2f%%\n", fabs(expected10 - cur_time) / expected10 * 100);
+            expected1 = expected10 / (0.5 * (min_t2 + max_t2));
+            printf("Queue 2:\n");
+            printf("[IN]:\n");
+            printf("Expected time : %f\n", expected1);
+            printf("Real time     : %f\n", sum_in_time2);
+            printf("Difference    : %.2f%%\n", fabs(expected1 - sum_in_time2) / expected1 * 100);
+        }
 
         printf("Do you want to see the free addresses? [Y / N] : ");
         clean_stdin();
