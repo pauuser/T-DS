@@ -19,9 +19,11 @@ void print_menu()
     printf("|                                                       |\n");
     printf("| 1 - Input file name                                   |\n");
     printf("| 2 - Build Binary Search Tree (BST) based on the file  |\n");
-    printf("| 3 - Balance BST - Build AVL Tree                      |\n");
-    printf("| 4 - Build hash table based on the file                |\n");
-    printf("| 5 - Search data in BST, AVL, Hash Table and File      |\n");
+    printf("| 3 - View BST Graph                                    |\n");
+    printf("| 4 - Balance BST - Build AVL Tree                      |\n");
+    printf("| 5 - View AVL Graph                                    |\n");
+    printf("| 6 - Build hash table based on the file                |\n");
+    printf("| 7 - Search data in BST, AVL, Hash Table and File      |\n");
     printf("| 6 - Compare time and memory efficiency                |\n");
     printf("|                                                       |\n");
     printf("| 0 - Exit                                              |\n");
@@ -68,11 +70,27 @@ void input_file_name(FILE **f)
 
 void read_file_to_bst(bst_node_t **bst, FILE *f)
 {
+    int n = 0;
     int cur_num = 0;
-    while (!feof(f) && fscanf(f, "%d", &cur_num) == 1)
+
+    if (f == NULL)
+        printf("No file!\n");
+    else if (bst != NULL)
     {
-        printf("%d : \n", cur_num);
-        bst_node_t *tmp = bst_create_node(cur_num);
-        *bst = bst_add_node(*bst, tmp);
+        while (!feof(f) && fscanf(f, "%d", &cur_num) == 1)
+        {
+            bst_node_t *tmp = bst_create_node(cur_num);
+            *bst = bst_add_node(*bst, tmp);
+
+            if (tmp != NULL)
+                n += 1;
+        }
+
+        if (n != 0)
+            printf("Success!\n");
+        else
+            printf("Error! File might be empty!\n");
     }
+    else
+        printf("No tree yet!\n");
 }

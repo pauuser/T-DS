@@ -22,7 +22,6 @@ bst_node_t *bst_add_node(bst_node_t *head, bst_node_t *node)
         return head;
     else
     {
-        printf("HERE!\n");
         if (node->num > head->num)
             head->right = bst_add_node(head->right, node);
         else if (node->num < head->num)

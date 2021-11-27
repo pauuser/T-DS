@@ -25,25 +25,11 @@ int main(void)
             clean_stdin();
         }
         else if (choice == 1)
-        {
            input_file_name(&f); 
-        }
         else if (choice == 2)
-        {
-            if (f == NULL)
-                printf("No file!\n");
-            else
-            {
-                read_file_to_bst(&bst, f);
-                FILE *f = fopen("my_test.txt", "w");
-                bst_traverse(bst, bst_node_print, f, "in");
-                bst_output_dot_graph(bst);
-            }
-        }
+            read_file_to_bst(&bst, f);
         else if (choice == 3)
-        {
-
-        }
+            bst_output_dot_graph(bst);
         else if (choice == 4)
         {
 
