@@ -26,23 +26,26 @@ bst_node_t *bst_add_node(bst_node_t *head, bst_node_t *node)
             head->right = bst_add_node(head->right, node);
         else if (node->num < head->num)
             head->left = bst_add_node(head->left, node);
+        //else
+        //    printf("ADD : This node already exists!\n");
     }
 
     return head;
 }
 
-bst_node_t *bst_search_node(bst_node_t *head, int num)
+bst_node_t *bst_search_node(bst_node_t *head, int num, int *comp_number)
 {
     if (head == NULL)
         return NULL;
     else
     {
+        *comp_number += 1;
         if (head->num == num)
             return head;
         else if (num > head->num)
-            return bst_search_node(head->right, num);
+            return bst_search_node(head->right, num, comp_number);
         else
-            return bst_search_node(head->left, num);
+            return bst_search_node(head->left, num, comp_number);
     }
 }
 
@@ -51,19 +54,19 @@ void bst_traverse(bst_node_t *tree, void (*f)(bst_node_t*, void*), void *arg, ch
     if (tree == NULL)
         return;
 
-    if (strcmp(order, "pre"))
+    if (strcmp(order, "pre") == 0)
     {
         f(tree, arg);
         bst_traverse(tree->left, f, arg, order);
         bst_traverse(tree->right, f, arg, order);
     }
-    else if (strcmp(order, "in"))
+    else if (strcmp(order, "in") == 0)
     {
         bst_traverse(tree->left, f, arg, order);
         f(tree, arg);
         bst_traverse(tree->right, f, arg, order);
     }
-    else if (strcmp(order, "post"))
+    else if (strcmp(order, "post") == 0)
     {
         bst_traverse(tree->left, f, arg, order);
         bst_traverse(tree->right, f, arg, order);
@@ -81,128 +84,54 @@ void bst_node_print(bst_node_t *node, void *arg)
 
 bst_node_t *bst_delete_node(bst_node_t *head, int num)
 {
-    if (num == head->num)
+    if (head == NULL)
+        return head;
+
+    if (num < head->num)
+        head->left = bst_delete_node(head->left, num);
+    else if (num > head->num)
+        head->right = bst_delete_node(head->right, num);
+    else
     {
-        free(head);
-        head = NULL;
-    }
-    while (head != NULL)
-    {
-        if (num < head->num)
+        // нет сыновей или только один
+        if ((head->left == NULL) || (head->right == NULL))
         {
-            // если левого сына головы нужно удалить
-            if (head->left != NULL && head->left->num == num)
+            bst_node_t *temp = head->left ? head->left : head->right;
+ 
+            // нет сыновей
+            if (temp == NULL)
             {
-                // удаление левого сына головы
-                // если у него только правый сын
-                if (head->left->left == NULL && head->left->right != NULL)
-                {
-                    bst_node_t *tmp = head->left->right;
-                    free(head->left);
-                    head->left = tmp;
-                }
-                // если у него только левый сын
-                else if (head->left->right == NULL && head->left->left != NULL)
-                {
-                    bst_node_t *tmp = head->left->left;
-                    free(head->left);
-                    head->left = tmp;
-                }
-                // терминальная вершина
-                else if (head->left->right == NULL && head->left->left == NULL)
-                {
-                    free(head->left);
-                    head->left = NULL;
-                }
-                // есть оба сына, ищем максимум в левом сыне
-                else
-                {
-                    bst_node_t *tmp = head->left->left;
-                    // если у левого сына нет правых потомков
-                    if (tmp->right == NULL)
-                    {
-                        free(head->right);
-                        head->right = tmp;
-                    }
-                    else
-                    {
-                        // ищем предпоследний элемент, чтобы в нём затереть указатель
-                        while (tmp->right != NULL && tmp->right->right != NULL)
-                            tmp = tmp->right;
-                        // приделываем укзаатели на сыновей удаляемой вершины
-                        tmp->right->right = head->left->right;
-                        tmp->right->left = head->left->left;
-
-                        // удаляем вершину
-                        free(head->left);
-
-                        // вставляем подготовленную и удаляем ссылку из предпоследнего
-                        head->left = tmp->right;
-                        tmp->right = NULL;
-                    }
-                }
+                temp = head;
+                head = NULL;
             }
+            // один сын
             else
-                head = head->left;
+                *head = *temp;
+
+            free(temp);
         }
+        // два сына
         else
         {
-            // если правый сын головы надо удалить
-            if (head->right != NULL && head->right->num == num)
-            {
-                // удаление правого
-                // есть только правый сын
-                if (head->right->left == NULL && head->right->right != NULL)
-                {
-                    bst_node_t *tmp = head->right->right;
-                    free(head->right);
-                    head->right = tmp;
-                }
-                // есть только левый сын
-                else if (head->right->right == NULL && head->right->left != NULL)
-                {
-                    bst_node_t *tmp = head->right->left;
-                    free(head->right);
-                    head->right = tmp;
-                }
-                // терминальная вершина
-                else if (head->right->right == NULL && head->right->left == NULL)
-                {
-                    free(head->right);
-                    head->right = NULL;
-                }
-                // есть оба сына, тогда ищем максимум в левом сыне
-                else
-                {
-                    bst_node_t *tmp = head->right->left;
-                    // если у левого сына нет правых потомков
-                    if (tmp->right == NULL)
-                    {
-                        free(head->right);
-                        head->right = tmp;
-                    }
-                    else
-                    {
-                        // ищем предпоследний элемент, чтобы в нём затереть указатель
-                        while (tmp->right != NULL && tmp->right->right != NULL)
-                            tmp = tmp->right;
-                        // приделываем укзаатели на сыновей удаляемой вершины
-                        tmp->right->right = head->right->right;
-                        tmp->right->left = head->right->left;
+            bst_node_t *tmp = head->left;
 
-                        // удаляем вершину
-                        free(head->right);
+            while (tmp && tmp->right != NULL)
+                tmp = tmp->right;
+            
+            head->num = tmp->num;
 
-                        // вставляем подготовленную и удаляем ссылку из предпоследнего
-                        head->right = tmp->right;
-                        tmp->right = NULL;
-                    }
-                }
-            }
-            else
-                head = head->right;
+            head->left = bst_delete_node(head->left, tmp->num);
         }
     }
-
     return head;
+}
+
+void bst_free_node(bst_node_t *node, void *arg)
+{
+    free(node);
+}
+
+void bst_free_tree(bst_node_t *head)
+{
+    bst_traverse(head, bst_free_node, NULL, "post");
 }
