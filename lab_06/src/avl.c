@@ -197,7 +197,7 @@ avl_node_t *avl_delete_node(avl_node_t *head, int num)
             }
             // один сын
             else
-                *head = *temp;
+                *head = *temp; // копирование
 
             free(temp);
         }
