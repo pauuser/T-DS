@@ -289,7 +289,7 @@ void measure_memory()
 void collision_comparison()
 {
     printf("===================== COLLISION COMPARISON ========================\n");
-    printf("LEVEL\tTIME \tCOMP\n");
+    printf("LEVEL\tTIME \tCOMP\tSTORAGE\n");
 
     int n = 0;
     FILE *f = fopen("./data/1000.txt", "r");
@@ -328,7 +328,9 @@ void collision_comparison()
             sum_n += sum / n;
             comp_n += all_comp / n;
         }
-        printf("%d%%\t%d\t%d\n", (int)((double)hash_count_collisions(table) / n * 100.0), sum_n / 1000, comp_n / 1000);
+        printf("%d%%\t%d\t%d\t%ld\n", (int)((double)hash_count_collisions(table) / n * 100.0), 
+                                       sum_n / 1000, comp_n / 1000,
+                                       table->size * sizeof(node_t *) + n * sizeof(node_t));
 
         s1 = tick();
         hash_restructure(&table);
