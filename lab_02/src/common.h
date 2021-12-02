@@ -18,7 +18,7 @@
 #define MAX_BOOKS_NUM 100
 #define MAX_STR_LEN 20
 #define MAX_FIELDS_NUM 8
-#define MAX_LINE_LEN 500 // досчитать
+#define MAX_LINE_LEN 500
 
 #define YES 1
 #define NO 0

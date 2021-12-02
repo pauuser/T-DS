@@ -15,10 +15,18 @@ void find_tech_data_by_area(book_table *table)
         fgets(fld, MAX_FIELD_LEN + 2, stdin);
         delete_new_str_sym(fld);
 
+        int year = 0;
+        char temp[20];
+        printf("Input the year: ");
+        fgets(temp, 20 + 1, stdin);
+        delete_new_str_sym(temp);
+        year = str_to_num(temp);
+
         int found_i[MAX_BOOKS_NUM] = { 0 }, n = 0;
         for (int i = 0; i < table->quantity; i++)
         {
-            if ((table->data)[i].type == TECHNICAL && strcmp((table->data)[i].spec.tech_info.area, fld) == 0)
+            if ((table->data)[i].type == TECHNICAL && strcmp((table->data)[i].spec.tech_info.area, fld) == 0
+            && (table->data)[i].spec.tech_info.year == year && (table->data)[i].spec.tech_info.type == STATE)
                 found_i[n++] = i;
         }
         if (n <= 0)
@@ -268,7 +276,7 @@ void add_line(book_table *table)
             {
                 temp_book.type = FICTION;
                 strcpy(temp, "0");
-                printf("Input type [novel / poetry / translated]: ");
+                printf("Input type [novel / poetry / play]: ");
                 fgets(temp, MAX_FIELD_LEN + 2, stdin);
                 if (string_is_not_empty(temp) == NO || strlen(temp) - 1 > MAX_FIELD_LEN)
                 {

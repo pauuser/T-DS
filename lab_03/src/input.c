@@ -1,5 +1,6 @@
 #include "input.h"
 #include "operations.h"
+#include "random.h"
 
 long double **create_full_matrix(long long *m, long long *n)
 {
@@ -19,7 +20,7 @@ long double **create_full_matrix(long long *m, long long *n)
     }
     else
     {
-        printf("Choose the input type [file (F) / keyboard (K) / non-zeroes (N)]: ");
+        printf("Choose the input type [file (F) / keyboard (K) / non-zeroes (N) / random (R)]: ");
         char type[20];
         scanf("%s", type);
         if (strcmp(type, "F") == 0)
@@ -40,6 +41,24 @@ long double **create_full_matrix(long long *m, long long *n)
             a = fill_init_matrix(stdin, *m, *n);
         else if (strcmp(type, "N") == 0)
             a = full_matrix_non_zero(*m, *n);
+        else if (strcmp(type, "R") == 0)
+        {
+            printf("Input percentage of non-zero elements:\n");
+            int num, rc;
+            do
+            {
+                rc = scanf("%d", &num);
+                if (rc < 0 || num > 100 || num < 1)
+                {
+                    printf("Wrong input!");
+                    read_needless_syms();
+                    rc = -1;
+                }
+            } 
+            while (rc != 1);
+            
+            a = generate_rand_matrix(*m, *n, num);
+        }
         else
             printf("Wrong input!\n");
     }

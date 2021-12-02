@@ -6,11 +6,18 @@
 ld **generate_rand_matrix(ll m, ll n, ll rand_num)
 {
     ld **a = init_matrix(m, n);
-    for (ll i = 0; i < rand_num; i++)
+    for (ll i = 0; i < (long double)(m * n) / 100 * (rand_num); i++)
     {
-        ll i = rand() % n;
-        ll j = rand() % m;
-        a[i][j] = rand() % 100;
+        ll k = 0;
+        ll p = 0;
+        do
+        {
+            k = rand() % n;
+            p = rand() % m;
+        } 
+        while (a[k][p] != 0);
+        
+        a[k][p] = rand() % 100;
     }
     return a;
 }
@@ -21,11 +28,11 @@ void measure_time(void)
     struct timeval tv_start, tv_stop;
     int64_t elapsed_time;
 
-    for (ll size = 10; size <= 10000; size *= 5)
+    for (ll size = 10; size <= 2000; size *= 5)
     {
         printf("Size of matrix: %lld x %lld\n", size, size);
         printf("Fill\tFull matrix\tCSR matrix\tFull memory\tCSR memory\n");
-        for (int i = 20; i <= 100; i = i + 20)
+        for (int i = 10; i <= 100; i = i + 10)
         {
             printf("%-5d%%\t", i);
             ld **one = generate_rand_matrix(size, size, i);
@@ -34,8 +41,8 @@ void measure_time(void)
             csr_matrix one_csr = transfer_full_to_csr(one, &size, &size);
             csr_matrix two_csr = transfer_full_to_csr(two, &size, &size);
             
-            ld **res = init_matrix(size, size);
             gettimeofday(&tv_start, NULL);
+            ld **res = init_matrix(size, size);
             for (ll i = 0; i < size; i++)
                 for (ll j = 0; j < size; j++)
                     res[i][j] = one[i][j] + two[i][j];

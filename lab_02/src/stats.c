@@ -44,7 +44,7 @@ void output_sort_stats(book_table table)
         if (qsort_time_table == 0 || qsort_time_key == 0)
             printf("Not enough data for comparison yet!\n");
         else
-            printf("Qsort is   \t\t%lldx faster\t\n", (long long)(qsort_time_table / bubble_time_table));
+            printf("Qsort is   \t\t%.2fx faster\t\n", ((double)bubble_time_table / (double)qsort_time_table));
     }
     else
         printf("No data yet!\n");
