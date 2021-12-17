@@ -7,8 +7,10 @@ struct subset_t
 	int rank;
 };
 
+//Функция поиска родителя вершины (в каком множестве она сейчас)
 int find_parent(struct subset_t subsets[], int i);
 
+// Функция объединения вершин в одну
 void union_sets(struct subset_t subsets[], int x, int y);
 
 #endif
