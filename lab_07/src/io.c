@@ -62,6 +62,12 @@ graph_t *input_graph(void)
             clean_stdin();
         }
     }
+    /*
+    if (read == E)
+    {
+        printf("Total size: %lld", (long long) sizeof(graph) + sizeof(edge_t) * E);
+    }
+    */
 
     return graph;
 }

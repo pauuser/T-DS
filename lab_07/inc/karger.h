@@ -4,8 +4,9 @@
 #include <math.h>
 #include <time.h>
 
-#include "../inc/graph.h"
-#include "../inc/set.h"
+#include "graph.h"
+#include "set.h"
+// #include "effec.h"
 
 // Функция поиска минимального разреза алгоритмом Каргера
 int karger_mincut(graph_t *graph, edgelist_t **out_list);

@@ -3,7 +3,7 @@ CFLAGS := -std=c99 -Wall -Werror -pedantic -Wvla
 OUT := ./out/
 SRC := ./src/
 INC := ./inc/
-OBJ := $(OUT)graph.o $(OUT)io.o $(OUT)karger.o $(OUT)set.o
+OBJ := $(OUT)graph.o $(OUT)io.o $(OUT)karger.o $(OUT)set.o # $(OUT)effec.o
 
 run : CFLAGS += -DNDEBUG -g0
 run : app.exe
@@ -28,6 +28,9 @@ $(OUT)set.o : $(SRC)set.c $(INC)set.h
 
 $(OUT)graph.o : $(SRC)graph.c $(INC)graph.h
 	cd out && $(CC) $(CFLAGS) -c .$(SRC)graph.c
+
+$(OUT)effec.o : $(SRC)effec.c $(INC)effec.h
+	cd out && $(CC) $(CFLAGS) -c .$(SRC)effec.c
 
 .PHONY : clean debug release
 

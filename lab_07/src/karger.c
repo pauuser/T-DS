@@ -12,7 +12,7 @@ int karger_mincut(graph_t *graph, edgelist_t **out_list)
     // информацию об объединении вершин
 	struct subset_t *subsets = malloc(V * sizeof(struct subset_t));
 
-	for (int v = 0; v < V; ++v)
+	for (int v = 0; v < V; v++)
 	{
 		subsets[v].parent = v;
 		subsets[v].rank = 0;
@@ -73,6 +73,8 @@ void karger(graph_t *graph)
 
 	if (graph != NULL)
 	{
+		// int64_t s1, e1;
+		// s1 = tick();
 		int min = graph->E + 1;
 		edgelist_t *list = NULL;
 
@@ -93,6 +95,7 @@ void karger(graph_t *graph)
 			else
 				edgelist_free(tmp);
 		}
+		// e1 = tick();
 		printf("\nAnswer: %d\n", min);
         if (min == 0)
             printf("Graph is not well-connected");
@@ -101,6 +104,7 @@ void karger(graph_t *graph)
 		    printf("The list of edges to delete: \n");
 		    edgelist_print(list);
         }
+		// printf("Time of processing: %d\n", (int)(e1 - s1));
 
         edgelist_free(list);
 	}
