@@ -1,9 +1,0 @@
-digraph BST {
-1 -> null1 [style=invis];
-null1[style=invis];
-1 -> 2;
-2 -> null2 [style=invis];
-null2[style=invis];
-2 -> null2 [style=invis];
-null2[style=invis];
-}
