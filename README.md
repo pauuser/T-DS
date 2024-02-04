@@ -1,9 +1,8 @@
-# Types and Data Structures'21-22
-Repository stores labs for T-DS course in Bauman University.
+# Types and data structures'21-22 assignments
 
-Language: **C**
+This repository contains assignments for "Types and data structures" course in Bauman University. Everything is written in pure **С**.
 
-Labs:
+Assignments:
 
 | №    | Lab                           | Mark |
 | ---- | ----------------------------- | ---- |
@@ -16,3 +15,4 @@ Labs:
 | 7   | Graph | ✅ |
 
 
+Every assignments contains a report in docx format describing an implemented data structure with some information to consider when choosing it. 
